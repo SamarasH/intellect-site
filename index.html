@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Intellect — Market &amp; Competitive Intelligence</title>
+<meta name="description" content="Decision-grade market research, built by an agentic pipeline from verified data — every number sourced or flagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* design system: ui-ux-pro-max — Portfolio Grid · Motion-Driven · data/analytics */
+:root{
+  --bg:#F8FAFC; --surface:#FFFFFF; --ink:#1E293B; --muted:#64748B; --line:#E2E8F0;
+  --primary:#2563EB; --primary-2:#3B82F6; --cta:#F97316; --ink-2:#0F172A;
+  --mono:'Fira Code',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Fira Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --r:14px; --maxw:1080px;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 var(--sans);
+      -webkit-font-smoothing:antialiased; }
+a{ color:var(--primary); text-decoration:none; }
+a:focus-visible, button:focus-visible{ outline:3px solid var(--primary-2); outline-offset:2px; border-radius:6px; }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+h1,h2,h3,.mono{ font-family:var(--mono); letter-spacing:-.01em; }
+/* top nav */
+.nav{ position:sticky; top:0; z-index:50; background:rgba(248,250,252,.85);
+      -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+.nav .wrap{ display:flex; align-items:center; gap:24px; height:58px; }
+.brand{ font-family:var(--mono); font-weight:700; color:var(--ink-2); font-size:15px; }
+.brand b{ color:var(--primary); }
+.nav .links{ display:flex; gap:22px; margin-left:auto; }
+.nav .links a{ font-size:13.5px; font-weight:600; color:var(--muted); }
+.nav .links a:hover{ color:var(--primary); }
+/* hero */
+.hero{ background:radial-gradient(1100px 420px at 70% -10%,#E0E7FF 0%,rgba(224,231,255,0) 60%),var(--bg);
+       padding:74px 0 56px; border-bottom:1px solid var(--line); }
+.eyebrow{ display:inline-block; font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.12em;
+          text-transform:uppercase; color:var(--primary); background:#E0E7FF; padding:5px 12px; border-radius:999px; }
+.hero h1{ font-size:clamp(30px,5vw,50px); line-height:1.08; margin:18px 0 16px; max-width:18ch; color:var(--ink-2); }
+.hero h1 .hl{ color:var(--primary); }
+.lede{ font-size:18px; color:#334155; max-width:62ch; margin:0 0 26px; }
+.cta{ display:flex; gap:12px; flex-wrap:wrap; }
+.btn{ display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px; padding:12px 22px;
+      border-radius:11px; cursor:pointer; transition:transform .2s, box-shadow .2s, background .2s; }
+.btn.primary{ background:var(--primary); color:#fff; }
+.btn.primary:hover{ background:#1D4ED8; transform:translateY(-2px); box-shadow:0 8px 20px rgba(37,99,235,.28); }
+.btn.ghost{ border:1px solid var(--line); color:var(--ink); background:var(--surface); }
+.btn.ghost:hover{ border-color:var(--primary-2); color:var(--primary); }
+.stats{ display:flex; gap:40px; flex-wrap:wrap; margin-top:38px; }
+.stat .n{ font-family:var(--mono); font-size:26px; font-weight:700; color:var(--ink-2);
+          font-variant-numeric:tabular-nums; }
+.stat .l{ font-size:13px; color:var(--muted); }
+/* sections */
+section{ padding:60px 0; }
+.kicker{ font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+h2{ font-size:clamp(24px,3.4vw,32px); margin:8px 0 6px; color:var(--ink-2); }
+.sub{ color:var(--muted); margin:0 0 28px; max-width:64ch; }
+/* portfolio grid */
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+.card{ display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line);
+       border-top:4px solid var(--c,var(--primary)); border-radius:var(--r); padding:22px 22px 20px;
+       transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s; }
+.card:hover{ transform:translateY(-6px); box-shadow:0 16px 40px rgba(15,23,42,.10); }
+.tag{ font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.03em; color:#fff;
+      background:var(--c,var(--primary)); border-radius:6px; padding:2px 9px; align-self:flex-start; }
+.card h3{ font-size:19px; margin:14px 0 6px; color:var(--ink-2); }
+.card p{ color:#475569; font-size:14.5px; margin:0 0 16px; flex:1; }
+.chips{ display:flex; gap:6px; flex-wrap:wrap; margin:0 0 14px; }
+.chip{ font-family:var(--mono); font-size:11px; color:#475569; border:1px solid var(--line); border-radius:999px; padding:2px 9px; }
+.go{ font-weight:600; color:var(--c,var(--primary)); display:inline-flex; align-items:center; gap:6px; }
+.card:hover .go .arr{ transform:translateX(4px); }
+.arr{ transition:transform .25s; }
+/* method */
+.method{ background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.steps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:8px; }
+.step{ background:var(--bg); border:1px solid var(--line); border-radius:14px; padding:18px; }
+.step .s{ width:30px; height:30px; border-radius:8px; background:var(--primary); color:#fff; font-family:var(--mono);
+          font-weight:700; display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.step h4{ font-family:var(--mono); margin:0 0 4px; font-size:14px; color:var(--ink-2); }
+.step p{ margin:0; font-size:13.5px; color:#475569; }
+.tiers{ display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; }
+.tier{ font-family:var(--mono); font-size:12px; font-weight:600; color:#fff; border-radius:7px; padding:4px 11px; }
+/* footer */
+footer{ border-top:1px solid var(--line); padding:34px 0 56px; color:var(--muted); font-size:14px; }
+footer a{ font-weight:600; }
+.muted{ color:var(--muted); font-size:13px; }
+/* motion-driven: scroll reveal (accessible) */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .55s ease-out, transform .55s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  *{ scroll-behavior:auto; }
+  .reveal{ opacity:1; transform:none; transition:none; }
+  .card:hover,.btn.primary:hover{ transform:none; }
+}
+@media (max-width:640px){ .nav .links{ display:none; } .stats{ gap:24px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <span class="brand">Intel<b>lect</b></span>
+  <div class="links"><a href="#work">Work</a><a href="#method">Method</a><a href="#stack">Stack</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap reveal">
+  <span class="eyebrow">Market &amp; Competitive Intelligence</span>
+  <h1>Decision-grade market research, built from <span class="hl">verified data</span>.</h1>
+  <p class="lede">An agentic research pipeline that sizes markets, maps value chains and prices competitors —
+     where <strong>every number is sourced or flagged</strong>, conflicting figures become ranges, and an
+     adversarial pass tries to refute the headline claims before they ship.</p>
+  <div class="cta">
+    <a class="btn primary" href="#work">View the work <span class="arr">&rarr;</span></a>
+    <a class="btn ghost" href="#method">How it's built</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">70+</div><div class="l">public data sources wired</div></div>
+    <div class="stat"><div class="n">7-stage</div><div class="l">agent pipeline per study</div></div>
+    <div class="stat"><div class="n">verified-only</div><div class="l">no number is invented</div></div>
+  </div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <div class="reveal"><div class="kicker">Selected work</div>
+  <h2>Project reports</h2>
+  <p class="sub">Each is a self-contained study you can read end-to-end — a methodology tab, a confidence key,
+     and source links on every figure.</p></div>
+  <div class="grid">
+
+    <a class="card reveal" style="--c:var(--primary)" href="Automotive_Brake_Pads_For_Passenger_Cars_Market_Landscape.html">
+      <span class="tag">Niche market research</span>
+      <h3>Automotive Brake Pads — Passenger Cars</h3>
+      <p>EU27 brake pads as one value-chain network across four channels, the EV-regenerative-braking
+         &ldquo;deferred cliff&rdquo; in demand, an independently triangulated market size (a range, not a point),
+         the manufacturer landscape, Euro 7 regulation, and an adversarial verification pass.</p>
+      <div class="chips"><span class="chip">value chain</span><span class="chip">triangulated sizing</span><span class="chip">verification</span></div>
+      <span class="go">View report <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="card reveal" style="--c:#0D9488" href="EV_Charging_Infrastructure_Landscape.html">
+      <span class="tag" style="--c:#0D9488">Market research · live data</span>
+      <h3>EV Charging Infrastructure</h3>
+      <p>EU charging infrastructure with a live data strip — 1.14M public chargers, DC-fast share, new-car
+         registrations and BEV penetration (EAFO + ACEA, 2013&ndash;2026) — on the full agentic study:
+         channels, demand, sizing (~&euro;5.5&ndash;8bn) and verification.</p>
+      <div class="chips"><span class="chip">live charts</span><span class="chip">EAFO + ACEA</span><span class="chip">network value chain</span></div>
+      <span class="go" style="--c:#0D9488">View report <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="card reveal" style="--c:var(--cta)" href="Automotive_Aftermarket_Market_Landscape.html">
+      <span class="tag" style="--c:var(--cta)">Competitive intelligence</span>
+      <h3>Automotive Aftermarket — Pricing</h3>
+      <p>The European online car-parts aftermarket: a <strong>verified-only price matrix</strong> (Autodoc-anchored,
+         indexed across sellers — a cell shows a price only if cited), a competitor landscape, and the market
+         split by part category with an EV-exposure overlay.</p>
+      <div class="chips"><span class="chip">verified price matrix</span><span class="chip">competitor map</span><span class="chip">EV exposure</span></div>
+      <span class="go" style="--c:var(--cta)">View report <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+</div></section>
+
+<section id="method" class="method"><div class="wrap reveal">
+  <div class="kicker">How it's built</div>
+  <h2>Research &rarr; Plan &rarr; Implement</h2>
+  <p class="sub">A lead agent scopes the market, then specialist agents each web-research one workstream and return
+     source-traced findings. An adversarial verifier tries to refute the decision-critical claims, and only then
+     does a synthesizer write the executive read — from verified claims alone.</p>
+  <div class="steps">
+    <div class="step"><div class="s">1</div><h4>Value Chain</h4><p>Routes to market and the price build-up from end-user price back to ex-works.</p></div>
+    <div class="step"><div class="s">2</div><h4>Demand</h4><p>The end-user demand equation, growth drivers vs barriers, and what would have to be true.</p></div>
+    <div class="step"><div class="s">3</div><h4>Market Size</h4><p>&ge;2 independent pathways, reconciled on one declared basis — the answer is a range.</p></div>
+    <div class="step"><div class="s">4</div><h4>Participants</h4><p>Who plays at each stage, their share of the sized market, and concentration.</p></div>
+    <div class="step"><div class="s">5</div><h4>Regulatory</h4><p>The named regulations, tailwind vs headwind, on a timeline, with macro sensitivity.</p></div>
+    <div class="step"><div class="s">6</div><h4>Verification</h4><p>An adversarial audit that searches independently to <em>refute</em> the key claims.</p></div>
+    <div class="step"><div class="s">7</div><h4>Synthesis</h4><p>The executive read — written only from claims that survived verification.</p></div>
+  </div>
+  <p class="muted" style="margin-top:24px"><strong>Every figure carries a confidence label:</strong></p>
+  <div class="tiers">
+    <span class="tier" style="background:#16A34A">CONFIRMED — ≥2 independent sources</span>
+    <span class="tier" style="background:#2563EB">RESEARCHED — one cited source</span>
+    <span class="tier" style="background:#D97706">HYPOTHESIS — estimate, shown as a range</span>
+    <span class="tier" style="background:#DC2626">CONFLICTING — sources disagree</span>
+  </div>
+</div></section>
+
+<section id="stack"><div class="wrap reveal">
+  <div class="kicker">Under the hood</div>
+  <h2>A reusable data stack, not a prompt</h2>
+  <p class="sub">The differentiation from a plain LLM is the data layer: 70+ typed clients over public
+     market-intelligence and financial sources (Eurostat, EAFO, ACEA, GLEIF, UN Comtrade, FRED, USGS, USPTO and
+     more), entity resolution, cross-signal triangulation and source-traced records. The agents only ever reason
+     over data that has already been retrieved and cited — so a number that can't be traced is never stated.</p>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <div class="mono" style="color:var(--ink-2);font-weight:600">Intellect &middot; <a href="mailto:Samaras.char@protonmail.com">Samaras.char@protonmail.com</a></div>
+  <div class="muted" style="margin-top:8px">
+    <a href="#work">Projects</a> &middot;
+    <a href="https://github.com/SamarasH">GitHub</a>
+    &nbsp;—&nbsp; Reports are point-in-time; every figure links to its source.
+  </div>
+</div></footer>
+
+<script>
+// Motion-Driven: reveal on scroll (respects prefers-reduced-motion via CSS).
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.reveal').forEach(function(e){ e.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold:0.12 });
+  document.querySelectorAll('.reveal').forEach(function(e){ io.observe(e); });
+})();
+</script>
+</body>
+</html>

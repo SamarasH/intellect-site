@@ -1,0 +1,239 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Automotive Aftermarket Market Landscape</title><style>
+:root{ --bg:#ffffff; --ink:#0f172a; --muted:#64748b; --line:#e5e7eb;
+       --indigo:#4f46e5; --teal:#0d9488; --soft:#f8fafc; }
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--bg); color:var(--ink);
+      font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+.wrap{ max-width:1080px; margin:0 auto; padding:32px 24px 80px; }
+h1{ font-size:26px; margin:0 0 4px; letter-spacing:-.02em; }
+h2{ font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted);
+    margin:34px 0 14px; font-weight:700; }
+.sub{ color:var(--muted); margin:0 0 8px; }
+.card{ border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin:14px 0;
+       background:#fff; box-shadow:0 1px 2px rgba(15,23,42,.04); }
+.note{ background:var(--soft); border-left:3px solid var(--indigo); padding:10px 14px;
+       border-radius:8px; color:#334155; margin:8px 0 0; }
+.pill{ display:inline-block; padding:2px 10px; border-radius:999px; font-size:12px;
+       font-weight:600; color:#fff; }
+.badge{ display:inline-block; padding:1px 8px; border-radius:6px; font-size:11px;
+        font-weight:700; color:#fff; letter-spacing:.03em; }
+/* flow chart */
+.flow{ display:flex; flex-wrap:wrap; align-items:stretch; gap:0; margin-top:6px; }
+.node{ border:1px solid var(--line); border-top:3px solid var(--c,#4f46e5);
+       border-radius:10px; padding:10px 12px; min-width:120px; max-width:180px; background:#fff; }
+.node .t{ font-weight:700; font-size:13.5px; }
+.node .ty{ font-size:11px; color:#fff; background:var(--c,#4f46e5); border-radius:5px;
+           padding:0 6px; display:inline-block; margin:4px 0 2px; }
+.node .r{ font-size:12px; color:var(--muted); }
+.arrow{ align-self:center; color:#94a3b8; font-size:20px; padding:0 6px; }
+/* waterfall */
+.wf{ margin-top:6px; }
+.wf .row{ display:flex; align-items:center; gap:12px; margin:7px 0; }
+.wf .lbl{ width:230px; font-size:13.5px; flex:none; }
+.wf .bar{ height:26px; border-radius:6px; background:linear-gradient(90deg,var(--c,#4f46e5),#818cf8);
+          display:flex; align-items:center; padding:0 10px; color:#fff; font-weight:700;
+          font-size:13px; min-width:54px; }
+.wf .mrg{ font-size:12px; color:var(--muted); flex:none; width:96px; }
+.ratio{ font-size:15px; margin-top:12px; padding:10px 14px; background:#ecfeff;
+        border:1px solid #a5f3fc; border-radius:10px; color:#0e7490; font-weight:600; }
+.warn{ background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:12px 16px;
+       color:#92400e; }
+.warn li{ margin:3px 0; }
+.meta{ color:var(--muted); font-size:12.5px; margin-top:18px; }
+a.src{ color:var(--indigo); text-decoration:none; font-size:11px; }
+/* demand */
+.eq{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:14px; background:var(--soft);
+     border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:6px 0; }
+.terms{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.chip{ font-size:12px; border:1px solid var(--line); border-radius:999px; padding:2px 10px; background:#fff; }
+.cols{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media(max-width:760px){ .cols{ grid-template-columns:1fr; } }
+.fac{ border:1px solid var(--line); border-left:4px solid var(--fc,#16a34a); border-radius:10px;
+      padding:12px 14px; margin:10px 0; }
+.fac .h{ font-weight:700; font-size:14.5px; }
+.fac .meta2{ font-size:12px; color:var(--muted); margin:3px 0 6px; }
+.fac .ww{ font-size:13px; background:var(--soft); border-radius:8px; padding:7px 10px; }
+.tag{ display:inline-block; font-size:11px; font-weight:700; border-radius:5px; padding:0 7px;
+      border:1px solid var(--line); color:#475569; }
+.thesis{ background:#eef2ff; border:1px solid #c7d2fe; border-radius:12px; padding:14px 18px;
+         color:#3730a3; font-size:15px; margin-top:8px; }
+.section-h{ font-size:22px; margin:40px 0 2px; letter-spacing:-.02em; }
+hr.div{ border:0; border-top:1px solid var(--line); margin:40px 0 0; }
+/* size + participants */
+.headline{ font-size:30px; font-weight:800; letter-spacing:-.02em; }
+.conf{ font-size:12px; font-weight:800; color:#fff; border-radius:6px; padding:2px 9px; vertical-align:middle; }
+.path{ border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:12px 0; }
+.path .pn{ font-weight:700; }
+.calc{ list-style:none; padding:0; margin:8px 0; }
+.calc li{ padding:4px 0; border-bottom:1px dashed var(--line); font-size:13.5px; display:flex;
+          justify-content:space-between; gap:10px; }
+.recon{ background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:12px 16px;
+        color:#166534; margin-top:8px; }
+table.calc-t{ width:100%; border-collapse:collapse; margin:8px 0 2px; font-size:13.5px; }
+table.calc-t th{ text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em;
+                 color:var(--muted); border-bottom:2px solid var(--line); padding:5px 8px; }
+table.calc-t td{ border-bottom:1px solid var(--line); padding:6px 8px; vertical-align:top; }
+table.calc-t td.step-n{ color:#cbd5e1; width:22px; font-variant-numeric:tabular-nums; }
+table.calc-t td.val{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+table.calc-t tr.ctot td{ border-top:2px solid var(--ink); border-bottom:0; background:var(--soft);
+                         font-weight:800; }
+.op{ color:#db2777; font-weight:800; padding:0 1px; }
+table.sumz{ width:100%; border-collapse:collapse; margin:6px 0 18px; font-size:13.5px; }
+table.sumz th{ text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em;
+               color:var(--muted); border-bottom:2px solid var(--line); padding:6px 8px; }
+table.sumz td{ border-bottom:1px solid var(--line); padding:7px 8px; }
+table.sumz td.val{ text-align:right; font-variant-numeric:tabular-nums; font-weight:700; white-space:nowrap; }
+table.pt{ width:100%; border-collapse:collapse; margin-top:8px; font-size:13.5px; }
+table.pt th{ text-align:left; color:var(--muted); font-size:11px; text-transform:uppercase;
+             letter-spacing:.05em; border-bottom:2px solid var(--line); padding:6px 8px; }
+table.pt td{ border-bottom:1px solid var(--line); padding:7px 8px; vertical-align:top; }
+/* synthesis */
+.exec{ background:linear-gradient(180deg,#eef2ff,#fff); border:1px solid #c7d2fe; border-radius:16px;
+       padding:22px 24px; margin:8px 0 6px; }
+.exec .hl{ font-size:19px; font-weight:800; letter-spacing:-.01em; color:#3730a3; margin-bottom:8px; }
+.exec .es{ font-size:15.5px; color:#1e293b; }
+.syn-sec{ margin:16px 0; }
+.syn-sec h3{ font-size:15px; margin:0 0 6px; text-transform:uppercase; letter-spacing:.04em; color:#334155; }
+.syn-sec ul{ margin:4px 0; padding-left:20px; }
+.syn-sec li{ margin:5px 0; font-size:14.5px; }
+.oq{ background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:6px 16px; color:#92400e; }
+.oq li, .ns li{ margin:6px 0; }
+/* inline key-info highlights */
+.kf{ color:#0d9488; font-weight:700; }
+.kb{ color:var(--indigo); font-weight:700; }
+.wb{ display:inline-block; color:#fff; font-size:10.5px; font-weight:700; border-radius:5px;
+     padding:0 6px; letter-spacing:.02em; vertical-align:baseline; }
+.impl{ background:#f5f3ff; border-left:4px solid var(--indigo); border-radius:8px;
+       padding:8px 14px; margin:8px 0 2px; font-size:14px; color:#3730a3; }
+.impl b{ color:var(--indigo); }
+/* regulatory */
+.reg{ border:1px solid var(--line); border-left:4px solid var(--rc,#64748b); border-radius:10px;
+      padding:11px 14px; margin:9px 0; }
+.reg .rn{ font-weight:700; font-size:14.5px; }
+.reg .rk{ display:inline-block; font-size:10.5px; font-weight:700; color:#fff; border-radius:5px;
+          padding:0 7px; margin-left:6px; vertical-align:middle; }
+.reg .rmeta{ font-size:12px; color:var(--muted); margin:2px 0 4px; }
+/* verification */
+.vsum{ display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 12px; }
+.vct{ font-size:13px; font-weight:700; color:#fff; border-radius:8px; padding:3px 12px; }
+.vrow{ border-bottom:1px solid var(--line); padding:8px 0; font-size:14px; }
+/* competitive intelligence */
+.metrics{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+.metric{ border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+.metric .ml{ font-size:12px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
+.metric .mv{ font-size:17px; font-weight:800; color:#0f172a; margin:3px 0; }
+table.mx{ width:100%; border-collapse:collapse; font-size:13px; }
+table.mx th{ text-align:right; padding:7px 8px; border-bottom:2px solid var(--line); font-size:11px;
+             text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+table.mx th.l, table.mx td.l{ text-align:left; }
+table.mx td{ padding:7px 8px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; }
+table.mx .anchor{ color:#0369a1; }
+table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bottom:0; }
+.cell-na{ color:#cbd5e1; }
+.cell-nc{ color:#e2e8f0; }
+.ci-legend{ font-size:12px; color:var(--muted); margin:4px 0 8px; }
+.cat{ display:flex; align-items:center; gap:10px; margin:8px 0; }
+.cat .cn{ width:150px; font-size:13.5px; flex:none; }
+.cat .track{ flex:1; background:var(--soft); border-radius:6px; height:22px; position:relative; }
+.cat .fill{ height:22px; border-radius:6px; background:linear-gradient(90deg,#4f46e5,#818cf8); }
+.cat .cv{ width:64px; text-align:right; font-size:13px; font-weight:700; flex:none; }
+.ev{ font-size:10.5px; font-weight:700; color:#fff; border-radius:5px; padding:0 6px; }
+/* tabs + legend + glossary */
+.tabbar{ display:flex; gap:4px; border-bottom:2px solid var(--line); margin:0 0 20px; }
+.tab{ border:0; background:none; font:700 14px/1 inherit; color:var(--muted); padding:11px 18px;
+      cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-2px; }
+.tab.active{ color:var(--indigo); border-bottom-color:var(--indigo); }
+.legend{ border:1px solid var(--line); border-radius:12px; padding:13px 15px; background:#fff; }
+.legend h4{ margin:0 0 8px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+.legend .li{ display:flex; gap:8px; align-items:flex-start; margin:7px 0; font-size:12px; line-height:1.35; }
+.legend .dot{ width:11px; height:11px; border-radius:3px; margin-top:2px; flex:none; }
+.legend .lk{ font-weight:800; }
+.legend-fixed{ position:fixed; top:16px; left:16px; width:190px; z-index:20;
+               box-shadow:0 2px 12px rgba(15,23,42,.07); }
+@media(max-width:1400px){ .legend-fixed{ position:static; width:auto; margin:0 0 18px;
+               box-shadow:none; } }
+.gloss dt{ font-weight:800; color:#0f172a; margin-top:12px; }
+.gloss dd{ margin:2px 0 0; color:#334155; font-size:14px; }
+.method h2{ margin-top:28px; }
+.stage-row{ display:flex; gap:11px; margin:9px 0; align-items:flex-start; }
+.stage-n{ width:26px; height:26px; border-radius:7px; background:var(--indigo); color:#fff;
+          font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center; flex:none; }
+/* hero band + sticky section nav + as-of stamp + editorial headings */
+.heroband{ background:#0f172a; color:#e2e8f0; border-radius:12px; padding:13px 18px;
+           font-size:14px; margin:0 0 14px; }
+.heroband .hb-n{ font-weight:800; font-size:19px; color:#a5b4fc; }
+.heroband .hb-s{ color:#94a3b8; }
+.secnav{ position:sticky; top:0; background:rgba(255,255,255,.93); -webkit-backdrop-filter:blur(6px);
+         backdrop-filter:blur(6px); border-bottom:1px solid var(--line); padding:9px 0; margin:0 0 20px;
+         display:flex; gap:16px; flex-wrap:wrap; z-index:10; }
+.secnav a{ font-size:13px; font-weight:700; color:var(--muted); text-decoration:none; }
+.secnav a:hover{ color:var(--indigo); }
+.asof{ font-size:12.5px; color:#92400e; background:#fffbeb; border:1px solid #fde68a;
+       border-radius:8px; padding:6px 12px; margin:0 0 14px; display:inline-block; }
+h1{ font-family:Georgia,"Iowan Old Style",Charter,"Times New Roman",serif; letter-spacing:-.01em; }
+</style></head><body><div class='wrap'><div class='legend legend-fixed'><h4>Confidence</h4><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>CONFIRMED</span> — ≥2 independent sources agree (or independently verified)</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>RESEARCHED</span> — backed by one cited source</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>HYPOTHESIS</span> — the model&#x27;s estimate — unverified, given as a range</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>CONFLICTING</span> — sources disagree beyond tolerance — shown as a range</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>SINGLE_SOURCE</span> — only one source found</span></div><div style='height:10px'></div><h4>Audit verdicts</h4><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>HOLDS</span> — independently corroborated</span></div><div class='li'><span class='dot' style='background:#ea580c'></span><span><span class='lk' style='color:#ea580c'>OVERSTATED</span> — right direction, magnitude too strong</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>REFUTED</span> — contradicted by what was found</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>UNCERTAIN</span> — could not be independently confirmed</span></div></div><div class='asof'>&#9679; Point-in-time report &middot; data as of <b>7 June 2026</b> &middot; every figure links to its source</div><div class='tabbar'><button class='tab active' data-t='results'>Results</button><button class='tab' data-t='method'>Methodology</button></div><div id='tab-results'><h1>Automotive Aftermarket Market Landscape</h1>
+<p class='sub'>Europe &middot; June 2026 &middot; benchmark: <b>Autodoc</b></p>
+<div class='note'>Autodoc is the structural winner of the European online aftermarket: at <span class='kf'>€1.55bn</span> revenue (+<span class='kf'>18.9%</span> in 2024) across 27 countries it is roughly 6–<span class='kf'>8x</span> the next pure-play, and its moat is pan-European reach against rivals that are national (kfzteile24 ~<span class='kf'>94%</span> Germany; Oscaro France-led) or captive (Mister-Auto/Stellantis, ATU/Mobivia). The tailwind is channel migration — BCG sees online penetration rising from ~<span class='kf'>30%</span> to ~<span class='kf'>70%</span> by 2035 in a <span class='kf'>€202bn</span> market — not category growth. The two real risks are margin (Amazon/eBay undercut on commodity SKUs — e.g. an oil filter at <span class='kf'>€6.71 </span>vs <span class='kf'>€9.52</span>) and, longer-term, EV erosion of the highest-volume categories: filters, ignition and exhaust are HIGH-exposure annuities that shrink as the BEV parc (<span class='kf'>15.4%</span> of new sales) ages in, while braking is MEDIUM (regen) and suspension/body/tyres are largely insulated.</div>
+<h2>Market sizing &amp; growth</h2><div class='metrics'>
+<div class='metric'><div class='ml'>Europe automotive aftermarket — total size</div><div class='mv'>≈<span class='kf'>USD 108</span>–<span class='kf'>120bn</span> (2025)</div><div class='sub'><span class='wb' style='background:#16a34a'>CONFIRMED</span> band, two independent firms: Fortune Business Insights <span class='kf'>USD 119.62bn</span> (Europe = <span class='kf'>27%</span> of global); Mordor Intelligence <span class='kf'>USD 107.83bn</span> (spare-parts scope). Spread is scope-driven (parts vs parts+service). Driven by aging parc and rising online penetration. <a class='src' href='https://www.fortunebusinessinsights.com/automotive-after-market-102613 ; https://www.mordorintelligence.com/industry-reports/europe-automotive-aftermarket-spare-parts-market' target='_blank'>src</a></div></div>
+<div class='metric'><div class='ml'>E-commerce penetration of European aftermarket</div><div class='mv'>~<span class='kf'>30%</span> today → ~<span class='kf'>70%</span> by 2035 (DIY/IAM segments)</div><div class='sub'><span class='wb' style='background:#d97706'>SINGLE-SOURCE</span> but authoritative: BCG &#x27;Shifting Gears&#x27; (Feb 2025) projects a structural shift to eCommerce within a <span class='kf'>€202bn</span> aftermarket by 2035. This penetration trajectory is the core tailwind for the online pure-plays. Implication: the channel, not the category, is where value is migrating. <a class='src' href='https://web-assets.bcg.com/db/df/9aeba75c4ab49b4321d65752f937/20250227-shifting-gears-ecommerce-in-the-auropean-automotive-aftermarket-vf.pdf' target='_blank'>src</a></div></div>
+<div class='metric'><div class='ml'>E-commerce aftermarket — absolute market size</div><div class='mv'><span class='wb' style='background:#dc2626'>CONFLICTING</span>: <span class='kf'>USD 32.1bn</span> (2024) to <span class='kf'>USD 76.09bn</span> (2025)</div><div class='sub'><span class='wb' style='background:#dc2626'>CONFLICTING</span> — presented as open question, not resolved. GM Insights <span class='kf'>USD 32.1bn</span> (2024, CAGR <span class='kf'>11.9%</span>); Market Data Forecast <span class='kf'>USD 76.09bn</span> (2025). &gt;<span class='kf'>2x</span> gap reflects incompatible definitions (B2C parts vs all online automotive incl. accessories/tyres). Do not use a point estimate for decisions. <a class='src' href='https://www.gminsights.com/industry-analysis/europe-e-commerce-automotive-aftermarket ; https://www.marketdataforecast.com/market-reports/europe-e-commerce-automotive-aftermarket-market' target='_blank'>src</a></div></div>
+<div class='metric'><div class='ml'>EV exposure proxy — BEV share of new EU car sales</div><div class='mv'><span class='kf'>15.4%</span> (Jan–May 2025, up from ~<span class='kf'>13%</span> prior year)</div><div class='sub'><span class='wb' style='background:#d97706'>SINGLE-SOURCE</span> (IEA Global EV Outlook 2025). Used as a proxy: a clean Europe-specific &#x27;EV aftermarket&#x27; size is NOT separately published (only a global figure exists: <span class='kf'>USD 308bn</span> by 2030 @<span class='kf'>21.1%</span> CAGR, Grand View — global, not Europe, flagged). The relevant near-term read is that the installed EV parc is still small, so EV erosion of ICE wear-parts demand is a 2030s risk, not a 2026 one. <a class='src' href='https://www.iea.org/reports/global-ev-outlook-2025/trends-in-electric-car-markets-2 ; https://www.grandviewresearch.com/horizon/outlook/electr-size/global' target='_blank'>src</a></div></div>
+</div>
+<h2>Verified price matrix</h2>
+<div class='ci-legend'><b>8 of 20</b> cells verified &middot; &#9679; verified (source) &middot; &mdash; not verified &middot; &middot; not carried &middot; vs Autodoc: <span style='color:#e11d48;font-weight:700'>cheaper</span> / <span style='color:#059669;font-weight:700'>pricier</span></div>
+<div class='card' style='overflow-x:auto'><table class='mx'>
+<tr><th class='l'>Part / brand</th><th class='anchor'>Autodoc &#9733;</th><th class=''>kfzteile24</th><th class=''>Oscaro</th><th class=''>Mister-Auto</th><th class=''>Amazon.de</th></tr>
+<tr><td class='l'><b>Oil filter</b><br><span class='sub'>MANN-FILTER &middot; W 712/95</span></td><td class='cell-na' title='not verified yet'>&mdash;</td><td style=''>&euro;9.52 <a class='src' href='https://geizhals.de/mann-filter-w-712-95-a1821180.html' target='_blank' title='verified source'>&#9679;</a></td><td class='cell-na' title='not verified yet'>&mdash;</td><td class='cell-na' title='not verified yet'>&mdash;</td><td style=''>&euro;6.71 <a class='src' href='https://geizhals.de/mann-filter-w-712-95-a1821180.html' target='_blank' title='verified source'>&#9679;</a></td></tr>
+<tr><td class='l'><b>Air filter</b><br><span class='sub'>MANN-FILTER &middot; C 35 154</span></td><td style=''>&euro;12.99 <a class='src' href='https://www.autodoc.de/mann-filter/961734' target='_blank' title='verified source'>&#9679;</a></td><td class='cell-na' title='not verified yet'>&mdash;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-na' title='not verified yet'>&mdash;</td></tr>
+<tr><td class='l'><b>Battery 12V 74Ah</b><br><span class='sub'>VARTA Blue Dynamic &middot; E11 (574 012 068)</span></td><td class='cell-na' title='not verified yet'>&mdash;</td><td style=''>&euro;108.00 <a class='src' href='https://geizhals.de/varta-blue-dynamic-e11-574012068-a827480.html' target='_blank' title='verified source'>&#9679;</a></td><td class='cell-na' title='not verified yet'>&mdash;</td><td class='cell-nc' title='not carried'>&middot;</td><td style=''>&euro;88.59 <a class='src' href='https://geizhals.de/varta-blue-dynamic-e11-574012068-a827480.html' target='_blank' title='verified source'>&#9679;</a></td></tr>
+<tr><td class='l'><b>Front brake disc (pair-priced per piece)</b><br><span class='sub'>BREMBO &middot; 09.9772.11 (312x25mm)</span></td><td style=''>&euro;51.49 <a class='src' href='https://www.autodoc.de/brembo/1657592' target='_blank' title='verified source'>&#9679;</a></td><td class='cell-na' title='not verified yet'>&mdash;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-na' title='not verified yet'>&mdash;</td></tr>
+<tr><td class='l'><b>Front brake pad set</b><br><span class='sub'>BOSCH &middot; 0 986 494 085</span></td><td style=''>&euro;40.46 <a class='src' href='https://www.autodoc.de/bosch/1167725' target='_blank' title='verified source'>&#9679;</a></td><td class='cell-na' title='not verified yet'>&mdash;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td></tr>
+<tr><td class='l'><b>Wiper blade set (600/450mm)</b><br><span class='sub'>BOSCH Aerotwin &middot; AR604S (3 397 118 908)</span></td><td style=''>&euro;26.65 <a class='src' href='https://www.autodoc.de/bosch/1194311' target='_blank' title='verified source'>&#9679;</a></td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td></tr>
+<tr><td class='l'><b>Spark plug</b><br><span class='sub'>NGK &middot; BKR6E (6962)</span></td><td class='cell-na' title='not verified yet'>&mdash;</td><td class='cell-na' title='not verified yet'>&mdash;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td><td class='cell-nc' title='not carried'>&middot;</td></tr>
+<tr class='idx'><td class='l'>Index vs Autodoc</td><td class='anchor'>1.00&times;</td><td class=''>&mdash;</td><td class=''>&mdash;</td><td class=''>&mdash;</td><td class=''>&mdash;</td></tr>
+</table></div>
+<h2>Competitor landscape</h2><table class='pt'><tr><th>Seller</th><th>Revenue</th><th>Markets</th><th>Traffic</th><th>Trustpilot</th></tr>
+<tr><td><b>Autodoc</b> &#9733; <a class='src' href='https://autodoc.group/wp-content/uploads/Successful-financial-year-2024-for-AUTODOC.pdf ; https://www.similarweb.com/website/autodoc.de/ ; https://www.trustpilot.com/review/autodoc.de' target='_blank'>src</a></td><td><span class='kf'>€1,555.0m</span> (FY2024, +<span class='kf'>18.9%</span> YoY); Adj. EBITDA <span class='kf'>€151.4m</span></td><td>27 European countries; HQ Berlin; &gt;5,000 staff across 13 locations; ~7.8m SKUs</td><td>autodoc.de ≈5.4m visits/mo (Apr 2026, Similarweb) — German site ONLY; group total across 27 domains is materially higher (not directly comparable to single-country rivals)</td><td>Trustpilot 4.5/5 (DE), 4.2/5 (UK), 4.3/5 (EU aggregate)</td></tr>
+<tr><td colspan='5' class='sub' style='padding-top:0'><span class='wb' style='background:#16a34a'>CONFIRMED</span> revenue (company FY2024 release). The clear scale leader and category-defining pure-play; IPO&#x27;d/listing in Frankfurt 2025. Pan-European footprint is its key moat vs national rivals.</td></tr>
+<tr><td><b>kfzteile24</b> <a class='src' href='https://ecommercedb.com/store/kfzteile24.de ; https://www.similarweb.com/website/kfzteile24.de/' target='_blank'>src</a></td><td>≈<span class='kf'>USD 185m</span> (kfzteile24.de store, 2025; ECDB)</td><td>Germany-centric — ~94% of revenue from Germany; &gt;3m products; omnichannel (own branches)</td><td>kfzteile24.de ≈2m visits/mo (Jul 2024, Similarweb)</td><td>Not found / not cited</td></tr>
+<tr><td colspan='5' class='sub' style='padding-top:0'><span class='wb' style='background:#d97706'>SINGLE-SOURCE</span> revenue (ECDB store-level). A strong #2 in Germany but essentially a one-country player — ~1/8th of Autodoc&#x27;s revenue and ~<span class='kf'>40%</span> of its German traffic.</td></tr>
+<tr><td><b>Oscaro</b> <a class='src' href='https://www.pappers.fr/entreprise/oscarocom-434474284 ; https://www.semrush.com/website/oscaro.com/overview/' target='_blank'>src</a></td><td><span class='kf'>€241.8m</span> (FY2024 filed accounts, OSCARO.COM); ECDB store est. ≈<span class='kf'>USD 292m</span></td><td>France-led, plus Spain/Portugal/Belgium; majority-owned by Parts Holding Europe (PHE, €2.76bn group revenue 2024)</td><td>oscaro.com ≈4.72m visits/mo (Dec 2025, Semrush)</td><td>Not found / not cited</td></tr>
+<tr><td colspan='5' class='sub' style='padding-top:0'>Revenue <span class='wb' style='background:#16a34a'>CONFIRMED</span> via French statutory filing (Pappers/Societe.com). French market leader but national in scope; PHE ownership gives distribution backing. Traffic is high but France-concentrated.</td></tr>
+<tr><td><b>Mister-Auto</b> <a class='src' href='https://www.media.stellantis.com/fr-fr/parts-services/press/un-nouveau-directeur-des-operations-pour-mister-auto ; https://www.similarweb.com/website/mister-auto.com/' target='_blank'>src</a></td><td>Not disclosed (captive unit, not separately reported)</td><td>Pan-European multi-country; owned by Stellantis (Parts &amp; Services / &#x27;Dare Forward 2030&#x27;)</td><td>mister-auto.com ≈2m visits/mo (Similarweb)</td><td>Not found / not cited</td></tr>
+<tr><td colspan='5' class='sub' style='padding-top:0'>UNVERIFIED revenue — Stellantis does not break out Mister-Auto. Strategically a captive OEM channel rather than an independent pure-play; smaller traffic than Autodoc/Oscaro.</td></tr>
+<tr><td><b>ATU (Auto-Teile-Unger)</b> <a class='src' href='https://www.onetz.de/weiden-in-der-oberpfalz/wirtschaft/bei-auto-teile-unger-wachsen-wieder-die-umsaetze-atu-ende-der-mageren-jahre-d1778371.html' target='_blank'>src</a></td><td>≈<span class='kf'>€1.0bn</span> (2024, +<span class='kf'>0.7%</span> YoY); ~9,000 staff; ~529 branches (Germany)</td><td>Germany-focused omnichannel (workshops + retail + online); owned by Mobivia (FR)</td><td>Not found / not cited (workshop-led model; online a minority of mix)</td><td>&mdash;</td></tr>
+<tr><td colspan='5' class='sub' style='padding-top:0'>Revenue <span class='wb' style='background:#d97706'>SINGLE-SOURCE</span> (Onetz/trade press). Included for completeness — primarily a bricks-and-mortar workshop/retail chain, not a price-competitive online pure-play; excluded from the price matrix.</td></tr>
+<tr><td><b>Amazon.de / eBay (marketplaces)</b> <a class='src' href='https://web-assets.bcg.com/db/df/9aeba75c4ab49b4321d65752f937/20250227-shifting-gears-ecommerce-in-the-auropean-automotive-aftermarket-vf.pdf' target='_blank'>src</a></td><td>Not separable (auto-parts GMV not disclosed)</td><td>Pan-European generalist marketplaces; growing &#x27;Motors&#x27; parts presence</td><td>Site-wide traffic vastly larger than any pure-play, but not parts-specific</td><td>&mdash;</td></tr>
+<tr><td colspan='5' class='sub' style='padding-top:0'>Included as a PRICE benchmark column only. BCG flags Amazon/eBay as structural disruptors undercutting on commodity SKUs (confirmed below: oil filter <span class='kf'>€6.71 </span>vs kfzteile24 <span class='kf'>€9.52</span>).</td></tr>
+</table>
+<h2>Market split by part category &middot; EV exposure</h2>
+<div class='cat'><div class='cn'>Braking (pads, discs, calipers) <span class='ev' style='background:#d97706'>EV medium</span></div><div class='track'><div class='fill' style='width:64%'></div></div><div class='cv'>~12–18% (directional est., not cleanly sized; see warnings)</div></div>
+<div class='sub' style='margin:-2px 0 8px 160px'>Brake pads ≈<span class='kf'>29%</span> of the braking-component market (MarketResearchFuture). EV exposure MEDIUM: regenerative braking materially extends pad/rotor life, so EVs still carry brakes but replace them far less often. Brake fluid/lines unaffected. &middot; growth: Stable/up near-term (aging parc); softening long-term as EV parc grows</div>
+<div class='cat'><div class='cn'>Filters (oil, air, fuel, cabin) <span class='ev' style='background:#dc2626'>EV high</span></div><div class='track'><div class='fill' style='width:43%'></div></div><div class='cv'>~8–12% (directional est.; aftermarket = &gt;60% of filter volume)</div></div>
+<div class='sub' style='margin:-2px 0 8px 160px'>Aftermarket is &gt;<span class='kf'>60%</span> of filter sales volume; oil filters the largest sub-segment (GMInsights). EV exposure HIGH: BEVs need no engine oil, oil filter, fuel filter or air filter — only the cabin/pollen filter survives. A core ICE-only annuity. &middot; growth: Stable near-term; structural decline long-term</div>
+<div class='cat'><div class='cn'>Service / wear (spark plugs, belts, oils, exhaust) <span class='ev' style='background:#dc2626'>EV high</span></div><div class='track'><div class='fill' style='width:54%'></div></div><div class='cv'>~10–15% (directional est.; not separately sized)</div></div>
+<div class='sub' style='margin:-2px 0 8px 160px'>EV exposure HIGH/HIGH-RISK: BEVs have no spark plugs, no exhaust/catalytic converter, no engine oil, single-speed transmission (~20 powertrain moving parts vs hundreds). Exhaust and ignition are the most EV-exposed categories of all. &middot; growth: Stable near-term; high structural decline long-term</div>
+<div class='cat'><div class='cn'>Suspension &amp; steering (shocks, arms, bushings) <span class='ev' style='background:#16a34a'>EV low</span></div><div class='track'><div class='fill' style='width:43%'></div></div><div class='cv'>~8–12% (directional est.; not separately sized)</div></div>
+<div class='sub' style='margin:-2px 0 8px 160px'>EV exposure LOW: suspension is drivetrain-agnostic and EV battery weight increases load on shocks/bushings, if anything supporting demand. A relative safe-haven category. &middot; growth: Stable/up (heavier EVs stress chassis)</div>
+<div class='cat'><div class='cn'>Electrical / ignition / batteries (12V) <span class='ev' style='background:#d97706'>EV medium</span></div><div class='track'><div class='fill' style='width:43%'></div></div><div class='cv'>~8–12% (directional est.; not separately sized)</div></div>
+<div class='sub' style='margin:-2px 0 8px 160px'>EV exposure MEDIUM: ignition components disappear, but EVs still use a 12V auxiliary battery and far more electronics/sensors. Net content per vehicle is rising even as ignition-specific parts vanish. &middot; growth: Up (electronics content rising)</div>
+<div class='cat'><div class='cn'>Body / lighting <span class='ev' style='background:#16a34a'>EV low</span></div><div class='track'><div class='fill' style='width:54%'></div></div><div class='cv'>~10–15% (directional est.; &#x27;body part&#x27; = 2nd-largest segment 2024)</div></div>
+<div class='sub' style='margin:-2px 0 8px 160px'>Body parts were the second-largest aftermarket segment in 2024 (Fortune). EV exposure LOW: collision, body and lighting parts are powertrain-independent. &middot; growth: Stable/up</div>
+<div class='cat'><div class='cn'>Tyres &amp; wheels <span class='ev' style='background:#16a34a'>EV low</span></div><div class='track'><div class='fill' style='width:100%'></div></div><div class='cv'>~28% of replacement-parts value (2024)</div></div>
+<div class='sub' style='margin:-2px 0 8px 160px'>Largest single replacement category at <span class='kf'>28.3%</span> (2024). EV exposure LOW (even positive): EVs&#x27; weight + instant torque wear tyres FASTER, raising replacement frequency. Note: tyres are largely outside the core SKU mix of the online pure-plays in this brief. &middot; growth: Up</div>
+<h2>Flagged &amp; unverified</h2><div class='warn'><ul><li>PRICE MATRIX IS DELIBERATELY HALF-FULL (verified-only). Oscaro, Mister-Auto and most Autodoc/kfzteile24 product pages bot-block direct fetching (HTTP 403 confirmed on Oscaro) and their prices did not surface in search snippets, so those cells are null with carried-status only. No prices were guessed or interpolated.</li><li>Prices are German-market, EUR, point-in-time (June 2026) and variant-sensitive. The VARTA E11 battery in particular shows a wide listed spread (<span class='kf'>€72</span>–168 on Autodoc across variants/listings) plus a ~<span class='kf'>€7.50 </span>returnable core deposit, so a single clean Autodoc figure could not be pinned and is left null.</li><li>kfzteile24 and Amazon.de price cells are sourced from the Geizhals price-comparison engine (per-merchant listings), which is independent of the retailers; treated as verified but is a third-party aggregator, not the retailer&#x27;s own page.</li><li>CATEGORY VALUE SHARES are directional estimates, NOT cited point figures — a clean value-based category split of the European aftermarket is not published by the sources found. Only tyres (~<span class='kf'>28%</span>), brake pads (~<span class='kf'>29%</span> of the braking sub-market) and &#x27;body = 2nd-largest segment&#x27; are individually sourced; the rest are flagged ranges. Do not treat category % as confirmed.</li><li>E-commerce absolute market-size figures CONFLICT by &gt;<span class='kf'>2x</span> across providers (<span class='kf'>USD 32.1bn</span>–<span class='kf'>76.09bn</span>) due to incompatible scope definitions; presented as an open question, not resolved. The BCG penetration trajectory (~<span class='kf'>30%</span>→~<span class='kf'>70%</span>) is the more reliable directional anchor but is single-source.</li><li>autodoc.de traffic (<span class='kf'>5.4m</span>/mo) is the GERMAN domain only; Autodoc operates 27 country sites, so its true group traffic is far higher and NOT comparable like-for-like to single-country competitors&#x27; figures. Competitor traffic dates also differ (kfzteile24 Jul-2024 vs Oscaro Dec-2025).</li><li>Several competitor revenue figures are <span class='wb' style='background:#d97706'>SINGLE-SOURCE</span> or store-level: kfzteile24 (ECDB store estimate), ATU (trade press). Mister-Auto revenue is UNVERIFIED (not disclosed by Stellantis). Oscaro&#x27;s <span class='kf'>€241.8m</span> is from statutory French filings (confirmed) but differs from ECDB&#x27;s ~<span class='kf'>USD 292m</span> store estimate (scope/currency).</li><li>No Europe-specific &#x27;EV aftermarket&#x27; market size exists in the sources found; the global figure (<span class='kf'>USD 308bn</span> by 2030) is flagged as global, and BEV new-sales penetration (<span class='kf'>15.4%</span>) is used only as a proxy for exposure timing.</li></ul></div>
+</div><div id='tab-method' style='display:none'><h1>Methodology &amp; how to read this</h1>
+<p class='sub'>How this study is built, and what the confidence labels mean.</p>
+<div class='legend'><h4>Confidence</h4><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>CONFIRMED</span> — ≥2 independent sources agree (or independently verified)</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>RESEARCHED</span> — backed by one cited source</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>HYPOTHESIS</span> — the model&#x27;s estimate — unverified, given as a range</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>CONFLICTING</span> — sources disagree beyond tolerance — shown as a range</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>SINGLE_SOURCE</span> — only one source found</span></div><div style='height:10px'></div><h4>Audit verdicts</h4><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>HOLDS</span> — independently corroborated</span></div><div class='li'><span class='dot' style='background:#ea580c'></span><span><span class='lk' style='color:#ea580c'>OVERSTATED</span> — right direction, magnitude too strong</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>REFUTED</span> — contradicted by what was found</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>UNCERTAIN</span> — could not be independently confirmed</span></div></div>
+<h2 class='method'>How this is built</h2>
+<p>A verified-only competitive scan of the European online car-parts aftermarket: market sizing, a split by part category with EV-exposure, a competitor landscape, and a price matrix. A price appears only if verified against a real listing — retailer pages bot-block scraping, so prices are sourced from web-search snippets; a cell is left blank (—) rather than guessed.</p>
+<h2 class='method'>Key terms</h2><dl class='gloss'>
+<dt>Ex-works (factory-gate)</dt><dd>The manufacturer&#x27;s selling price at its own premises — before transport, distributor and retailer margins, and VAT. The smallest, &#x27;truest&#x27; measure of a market: manufacturer revenue.</dd>
+<dt>End-user / installed spend</dt><dd>What the final buyer actually pays — ex-works plus every downstream margin, plus (for services) installation/labour and VAT. Often 2–10× the ex-works figure.</dd>
+<dt>Consumer↔manufacturer ratio</dt><dd>The multiple between end-user price and ex-works price for a channel — used to move a market size between the two bases without distorting it.</dd>
+<dt>Channel</dt><dd>A distinct route a product takes to its buyer (e.g. OEM first-fit vs aftermarket). Price builds up differently per channel, so they are never blended.</dd>
+<dt>Triangulation</dt><dd>Sizing a market by ≥2 independent methods and reconciling them; agreement raises confidence, divergence is itself a finding.</dd>
+<dt>TAM / SAM / SOM</dt><dd>Total / Serviceable / Obtainable market — the whole market, the slice a player can address, and the slice it can realistically win.</dd>
+<dt>Concentration (CR4 / HHI)</dt><dd>How consolidated a market is — CR4 = combined share of the top 4 players; HHI = sum of squared shares.</dd>
+</dl></div><script>document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});b.classList.add('active');document.getElementById('tab-results').style.display=(b.dataset.t=='results')?'':'none';document.getElementById('tab-method').style.display=(b.dataset.t=='method')?'':'none';};});</script></div></body></html>
