@@ -10,5 +10,7 @@ Selected work:
 - EV Charging Infrastructure Landscape
 - Automotive Brake Pads — Passenger Cars
 - Automotive Aftermarket — Pricing
+- Residential Heat Pumps — Market Landscape
+- Critical Battery Materials — Market Landscape
 
 Contact: Samaras.char@protonmail.com

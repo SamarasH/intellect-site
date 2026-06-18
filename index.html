@@ -7,14 +7,17 @@
 <meta name="description" content="Decision-grade market research, built by an agentic pipeline from verified data — every number sourced or flagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* design system: ui-ux-pro-max — Portfolio Grid · Motion-Driven · data/analytics */
+/* design system: warm editorial — aligned with the report skin (render.py tokens) */
 :root{
-  --bg:#F8FAFC; --surface:#FFFFFF; --ink:#1E293B; --muted:#64748B; --line:#E2E8F0;
-  --primary:#2563EB; --primary-2:#3B82F6; --cta:#F97316; --ink-2:#0F172A;
-  --mono:'Fira Code',ui-monospace,SFMono-Regular,Menlo,monospace;
-  --sans:'Fira Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --bg:oklch(0.985 0.006 85); --surface:oklch(0.997 0.004 85); --ink:oklch(0.27 0.045 255);
+  --muted:oklch(0.55 0.03 255); --line:oklch(0.90 0.008 90);
+  --primary:oklch(0.55 0.13 165); --primary-2:oklch(0.62 0.13 165); --cta:oklch(0.46 0.12 165);
+  --ink-2:oklch(0.22 0.04 255);
+  --serif:'Fraunces','Iowan Old Style',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --r:14px; --maxw:1080px;
 }
 *{ box-sizing:border-box; }
@@ -24,7 +27,8 @@ body{ margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 var(--san
 a{ color:var(--primary); text-decoration:none; }
 a:focus-visible, button:focus-visible{ outline:3px solid var(--primary-2); outline-offset:2px; border-radius:6px; }
 .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
-h1,h2,h3,.mono{ font-family:var(--mono); letter-spacing:-.01em; }
+h1,h2,h3{ font-family:var(--serif); font-weight:600; letter-spacing:-.01em; }
+.mono{ font-family:var(--mono); letter-spacing:-.01em; }
 /* top nav */
 .nav{ position:sticky; top:0; z-index:50; background:rgba(248,250,252,.85);
       -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
@@ -35,10 +39,11 @@ h1,h2,h3,.mono{ font-family:var(--mono); letter-spacing:-.01em; }
 .nav .links a{ font-size:13.5px; font-weight:600; color:var(--muted); }
 .nav .links a:hover{ color:var(--primary); }
 /* hero */
-.hero{ background:radial-gradient(1100px 420px at 70% -10%,#E0E7FF 0%,rgba(224,231,255,0) 60%),var(--bg);
+.hero{ background:radial-gradient(1100px 420px at 70% -10%,color-mix(in oklch,var(--primary) 15%,var(--bg)) 0%,transparent 60%),var(--bg);
        padding:74px 0 56px; border-bottom:1px solid var(--line); }
-.eyebrow{ display:inline-block; font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.12em;
-          text-transform:uppercase; color:var(--primary); background:#E0E7FF; padding:5px 12px; border-radius:999px; }
+.hero h1{ font-size:clamp(32px,5.2vw,54px); }
+.eyebrow{ display:inline-block; font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.14em;
+          text-transform:uppercase; color:var(--cta); background:color-mix(in oklch,var(--primary) 13%,var(--bg)); padding:5px 12px; border-radius:999px; }
 .hero h1{ font-size:clamp(30px,5vw,50px); line-height:1.08; margin:18px 0 16px; max-width:18ch; color:var(--ink-2); }
 .hero h1 .hl{ color:var(--primary); }
 .lede{ font-size:18px; color:#334155; max-width:62ch; margin:0 0 26px; }
@@ -46,7 +51,7 @@ h1,h2,h3,.mono{ font-family:var(--mono); letter-spacing:-.01em; }
 .btn{ display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px; padding:12px 22px;
       border-radius:11px; cursor:pointer; transition:transform .2s, box-shadow .2s, background .2s; }
 .btn.primary{ background:var(--primary); color:#fff; }
-.btn.primary:hover{ background:#1D4ED8; transform:translateY(-2px); box-shadow:0 8px 20px rgba(37,99,235,.28); }
+.btn.primary:hover{ background:var(--cta); transform:translateY(-2px); box-shadow:0 8px 20px color-mix(in oklch,var(--primary) 30%,transparent); }
 .btn.ghost{ border:1px solid var(--line); color:var(--ink); background:var(--surface); }
 .btn.ghost:hover{ border-color:var(--primary-2); color:var(--primary); }
 .stats{ display:flex; gap:40px; flex-wrap:wrap; margin-top:38px; }
@@ -139,24 +144,44 @@ footer a{ font-weight:600; }
       <span class="go">View report <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="card reveal" style="--c:#0D9488" href="EV_Charging_Infrastructure_Landscape.html">
-      <span class="tag" style="--c:#0D9488">Market research · live data</span>
+    <a class="card reveal" style="--c:oklch(0.55 0.12 245)" href="EV_Charging_Infrastructure_Landscape.html">
+      <span class="tag" style="--c:oklch(0.55 0.12 245)">Market research · live data</span>
       <h3>EV Charging Infrastructure</h3>
       <p>EU charging infrastructure with a live data strip — 1.14M public chargers, DC-fast share, new-car
          registrations and BEV penetration (EAFO + ACEA, 2013&ndash;2026) — on the full agentic study:
          channels, demand, sizing (~&euro;5.5&ndash;8bn) and verification.</p>
       <div class="chips"><span class="chip">live charts</span><span class="chip">EAFO + ACEA</span><span class="chip">network value chain</span></div>
-      <span class="go" style="--c:#0D9488">View report <span class="arr">&rarr;</span></span>
+      <span class="go" style="--c:oklch(0.55 0.12 245)">View report <span class="arr">&rarr;</span></span>
     </a>
 
-    <a class="card reveal" style="--c:var(--cta)" href="Automotive_Aftermarket_Market_Landscape.html">
-      <span class="tag" style="--c:var(--cta)">Competitive Pricing</span>
+    <a class="card reveal" style="--c:oklch(0.66 0.13 70)" href="Automotive_Aftermarket_Market_Landscape.html">
+      <span class="tag" style="--c:oklch(0.66 0.13 70)">Competitive Pricing</span>
       <h3>Automotive Aftermarket — Pricing</h3>
       <p>The European online car-parts aftermarket: a <strong>verified-only price matrix</strong> (Autodoc-anchored,
          indexed across sellers — a cell shows a price only if cited), a competitor landscape, and the market
          split by part category with an EV-exposure overlay.</p>
       <div class="chips"><span class="chip">verified price matrix</span><span class="chip">competitor map</span><span class="chip">EV exposure</span></div>
-      <span class="go" style="--c:var(--cta)">View report <span class="arr">&rarr;</span></span>
+      <span class="go" style="--c:oklch(0.66 0.13 70)">View report <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="card reveal" style="--c:oklch(0.58 0.15 35)" href="Residential_Heat_Pumps_Market_Landscape.html">
+      <span class="tag" style="--c:oklch(0.58 0.15 35)">Market research · live data</span>
+      <h3>Residential Heat Pumps</h3>
+      <p>The EU27 residential heat-pump market: the value chain and installed-price build, demand split by
+         air-to-water and ground-source, an independently triangulated size (a range, not a point), the
+         manufacturer landscape, and the EPBD / F-gas regulatory stack — with an adversarial verification pass.</p>
+      <div class="chips"><span class="chip">value chain</span><span class="chip">triangulated sizing</span><span class="chip">EPBD + F-gas</span></div>
+      <span class="go" style="--c:oklch(0.58 0.15 35)">View report <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a class="card reveal" style="--c:oklch(0.58 0.10 60)" href="Critical_Battery_Materials_Market_Landscape.html">
+      <span class="tag" style="--c:oklch(0.58 0.10 60)">Market research</span>
+      <h3>Critical Battery Materials</h3>
+      <p>EU27 battery raw materials — lithium, nickel, cobalt and graphite: the upstream-to-cell value chain,
+         demand tied to BEV growth, an independently triangulated market size, the supplier landscape and
+         import dependence, and the Critical Raw Materials Act backdrop — verified throughout.</p>
+      <div class="chips"><span class="chip">value chain</span><span class="chip">import dependence</span><span class="chip">CRMA</span></div>
+      <span class="go" style="--c:oklch(0.58 0.10 60)">View report <span class="arr">&rarr;</span></span>
     </a>
 
   </div>
