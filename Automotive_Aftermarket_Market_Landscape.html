@@ -371,6 +371,31 @@ table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bott
 .driver-panel header{ padding:12px 14px; border-bottom:1px solid var(--line); background:var(--soft); }
 .driver-panel header h3{ margin:0; font-size:16px; }
 .driver-panel .driver-body{ padding:0 13px 10px; }
+.expert-debate{ margin:18px 0 24px; padding:18px 20px 20px; border:1px solid var(--line);
+                border-radius:var(--r2); background:color-mix(in oklch,var(--accent) 2%,var(--card)); }
+.expert-debate-head{ border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:14px; }
+.expert-debate-head .ed-kicker{ font:700 9.5px/1.5 var(--mono); letter-spacing:.12em;
+                                text-transform:uppercase; color:var(--accent-ink); }
+.expert-debate-head h2{ margin:4px 0 0; max-width:none; font:750 21px/1.18 var(--display);
+                        letter-spacing:-.012em; text-wrap:pretty; }
+.expert-debate-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.expert-quote{ --qc:var(--accent); min-width:0; padding:15px 16px 14px; border:1px solid var(--line);
+               border-top:4px solid var(--qc); border-radius:var(--r1); background:var(--card); }
+.expert-quote.challenges{ --qc:var(--conflicting); }
+.expert-quote .eq-role{ color:var(--qc); font:700 9px/1.5 var(--mono); letter-spacing:.1em;
+                        text-transform:uppercase; }
+.expert-quote blockquote{ margin:10px 0 13px; padding:0; border:0; color:var(--ink);
+                          font:italic 600 18px/1.38 var(--display); text-wrap:pretty; }
+.expert-quote .eq-who{ font-size:12.5px; line-height:1.4; }
+.expert-quote .eq-who b{ display:block; font-size:13.5px; }
+.expert-quote .eq-meta{ display:flex; flex-wrap:wrap; gap:5px 8px; align-items:center; margin-top:10px;
+                        padding-top:9px; border-top:1px solid var(--line); color:var(--muted);
+                        font:9.5px/1.45 var(--mono); }
+.expert-quote .eq-interest{ width:100%; }
+.expert-quote .eq-source{ color:var(--accent-ink); text-decoration:none; font-weight:700; }
+.viewpoint-audit{ margin:18px 0 0; }
+.viewpoint-audit table{ table-layout:fixed; }
+.viewpoint-audit td{ overflow-wrap:anywhere; }
 .route-compare{ overflow-x:auto; margin:14px 0; border:1px solid var(--line); border-radius:var(--r2); }
 .route-compare table{ min-width:980px; margin:0; }
 .reg-timeline{ display:grid; grid-template-columns:repeat(var(--rcount,5),minmax(112px,1fr)); gap:0; margin:16px 0;
@@ -417,7 +442,7 @@ button:focus-visible,a:focus-visible{ outline:3px solid var(--accent); outline-o
                                             -webkit-overflow-scrolling:touch; }
   .reportfoot{ flex-direction:column; }
   .scopebar{ grid-template-columns:1fr 1fr; }
-  .story-grid,.stage-grid,.impact-grid,.exec-visuals,.driver-compare,.scenario-grid,.api-chart-grid{ grid-template-columns:1fr; }
+  .story-grid,.stage-grid,.impact-grid,.exec-visuals,.driver-compare,.scenario-grid,.api-chart-grid,.expert-debate-grid{ grid-template-columns:1fr; }
   .exec-chart .chart-sub{ min-height:0; }
   .assurance-grid{ grid-template-columns:1fr 1fr; }
   .viewhint{ align-items:flex-start; flex-wrap:wrap; }
@@ -482,7 +507,8 @@ button:focus-visible,a:focus-visible{ outline:3px solid var(--accent); outline-o
 <div class='stage-row'><div class='stage-n'>7</div><div><b>Regulatory & Macro.</b> the named regulations (tailwind/headwind), their timelines, and macro sensitivities.</div></div>
 <div class='stage-row'><div class='stage-n'>8</div><div><b>Verification.</b> an adversarial audit that tries to refute the decision-critical claims.</div></div>
 <div class='stage-row'><div class='stage-n'>9</div><div><b>Evidence Repair.</b> one bounded attempt to narrow, support or retract failed material claims, followed by re-verification.</div></div>
-<div class='stage-row'><div class='stage-n'>10</div><div><b>Synthesis.</b> the executive read — written only from eligible claims above.</div></div>
+<div class='stage-row'><div class='stage-n'>10</div><div><b>Expert Viewpoints.</b> a bounded search for qualified supporting and challenging voices, followed by independent quote verification.</div></div>
+<div class='stage-row'><div class='stage-n'>11</div><div><b>Synthesis.</b> the executive read — written only from eligible claims above.</div></div>
 <h2 class='method'>Key terms</h2><dl class='gloss'>
 <dt>Ex-works (factory-gate)</dt><dd>The manufacturer&#x27;s selling price at its own premises — before transport, distributor and retailer margins, and VAT. The smallest, &#x27;truest&#x27; measure of a market: manufacturer revenue.</dd>
 <dt>End-user / installed spend</dt><dd>What the final buyer actually pays — ex-works plus every downstream margin, plus (for services) installation/labour and VAT. Often 2–10× the ex-works figure.</dd>
