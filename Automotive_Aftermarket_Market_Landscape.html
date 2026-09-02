@@ -35,10 +35,12 @@
   --lift:0 10px 30px oklch(0.27 0.045 255 / .12);
 }
 *{ box-sizing:border-box; }
+html,body{ max-width:100%; overflow-x:hidden; }
 body{ margin:0; background:var(--paper); color:var(--ink); font:17px/1.65 var(--sans);
       -webkit-font-smoothing:antialiased; }
 svg text{ font-family:var(--mono); }
-.wrap{ max-width:1080px; margin:0 auto; padding:32px 24px 80px; }
+.wrap{ width:100%; max-width:1080px; margin:0 auto; padding:32px 24px 80px; }
+.secbody,.secpane{ min-width:0; max-width:100%; }
 /* layout.measure — cap the prose, not the container. A 1080px column at 17px runs
    to ~135 characters, roughly double the readable limit for a sustained read. */
 .wrap > p, .sub, .lede, .takeaway, .gread p, .exec p{ max-width:var(--measure); }
@@ -150,6 +152,8 @@ hr.div{ border:0; border-top:1px solid var(--line); margin:40px 0 0; }
 .recon{ background:color-mix(in oklch, var(--confirmed) 9%, var(--paper));
         border:1px solid color-mix(in oklch, var(--confirmed) 28%, transparent); border-radius:var(--r1);
         padding:12px 16px; color:oklch(0.43 0.12 150); margin-top:8px; }
+.recon-list{ margin:7px 0 0; padding-left:19px; color:var(--ink); }
+.recon-list li{ margin:6px 0; line-height:1.48; }
 table.calc-t{ width:100%; table-layout:fixed; border-collapse:collapse; margin:8px 0 2px; font-size:13.5px; }
 table.calc-t th{ text-align:left; font:600 10px/1.6 var(--mono); text-transform:uppercase; letter-spacing:.1em;
                  color:var(--muted); border-bottom:2px solid var(--line); padding:5px 8px; }
@@ -191,7 +195,7 @@ table.pt td{ border-bottom:1px solid var(--line); padding:7px 8px; vertical-alig
 .impl{ background:color-mix(in oklch, var(--accent) 8%, var(--paper)); border-left:4px solid var(--accent);
        border-radius:var(--r1); padding:8px 14px; margin:8px 0 2px; font-size:14px; color:var(--ink); }
 .impl b{ color:var(--accent-ink); }
-/* market scenarios — tone-framed cards (green bull / red bear / blue insulated) */
+/* market scenarios — tone-framed cards (upside / downside / base) */
 .scn{ border:1.5px solid var(--tone); background:color-mix(in oklch, var(--tone) 6%, var(--card)); }
 .scn-bull{ --tone:var(--confirmed); --tone-ink:oklch(0.43 0.12 150); }
 .scn-bear{ --tone:var(--conflicting); --tone-ink:oklch(0.46 0.16 25); }
@@ -203,6 +207,7 @@ table.pt td{ border-bottom:1px solid var(--line); padding:7px 8px; vertical-alig
 .scn .scn-tag{ margin-left:auto; font:600 9.5px/1.7 var(--mono); text-transform:uppercase;
                letter-spacing:.08em; color:#fff; background:var(--tone); border-radius:5px;
                padding:1px 7px; white-space:nowrap; flex:none; }
+.scenario-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; align-items:start; }
 /* regulatory */
 .reg{ border:1px solid var(--line); border-left:4px solid var(--rc,var(--muted)); border-radius:var(--r1);
       padding:11px 14px; margin:9px 0; background:var(--card); }
@@ -299,7 +304,8 @@ table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bott
 .mastbrand{ color:oklch(0.84 0.1 165); text-decoration:none; }
 .mastkind{ color:oklch(0.75 0.02 90); }
 .reportmast h1{ max-width:24ch; color:#fff; font-size:clamp(30px,5vw,48px); line-height:1.06;
-                letter-spacing:-.025em; margin:52px 0 12px; position:relative; z-index:1; }
+                letter-spacing:-.025em; margin:52px 0 12px; position:relative; z-index:1;
+                overflow-wrap:anywhere; }
 .mastline{ width:76px; height:3px; background:var(--accent); border-radius:2px; position:relative; z-index:1; }
 .mastsub{ color:oklch(0.78 0.02 90); max-width:64ch; margin:14px 0 0; font-size:14px; position:relative; z-index:1; }
 .reportfoot{ border-top:1px solid var(--line); margin-top:54px; padding:18px 0 0; display:flex;
@@ -309,10 +315,75 @@ table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bott
 .slidehead .decksec{ font:600 10.5px/1.6 var(--mono); color:var(--accent-ink); text-transform:uppercase;
                      letter-spacing:.12em; margin-bottom:5px; }
 .slidehead h1{ width:100%; max-width:none; font-family:var(--display); font-size:clamp(28px,3.4vw,36px);
-               font-weight:750; line-height:1.1; letter-spacing:-.024em; margin:0; text-wrap:pretty; }
+               font-weight:750; line-height:1.1; letter-spacing:-.024em; margin:0; text-wrap:pretty;
+               overflow-wrap:anywhere; }
 .slidehead .deckproof{ max-width:88ch; color:var(--ink); font-size:16px; line-height:1.48;
                        margin-top:12px; padding-left:13px; border-left:3px solid var(--accent); }
 .slidehead .deckq{ color:var(--muted); font-size:13px; margin-top:7px; }
+.scopebar{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px; margin:0 0 16px;
+           border:1px solid var(--line); border-radius:var(--r2); overflow:hidden; background:var(--line); }
+.scopeitem{ min-width:0; background:var(--card); padding:10px 13px; }
+.scopeitem .sl{ display:block; font:600 9px/1.5 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.scopeitem .sv{ display:block; margin-top:2px; font-size:13px; font-weight:600; overflow-wrap:anywhere; }
+.viewhint{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin:-8px 0 14px;
+           color:var(--muted); font:11px/1.5 var(--mono); }
+.story-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:16px 0 22px; }
+.story-card{ border-top:3px solid var(--accent); background:var(--card); border-radius:var(--r1);
+             padding:15px 16px; box-shadow:var(--shadow); min-width:0; }
+.story-card h3{ margin:0 0 7px; font-size:16px; line-height:1.2; }
+.story-card p{ margin:0; font-size:13.5px; line-height:1.5; }
+.story-card .so-what{ margin-top:9px; padding-top:8px; border-top:1px solid var(--line); color:var(--accent-ink); }
+.detail-block{ border-top:1px solid var(--line); margin:14px 0 0; padding:10px 0 0; }
+.detail-block summary{ cursor:pointer; color:var(--accent-ink); font:600 11px/1.6 var(--mono);
+                       letter-spacing:.06em; text-transform:uppercase; }
+.detail-block[open] summary{ margin-bottom:12px; }
+.caveats{ margin:22px 0 0; padding:14px 16px; border:1px solid color-mix(in oklch,var(--hypothesis) 28%,transparent);
+          border-radius:var(--r1); background:color-mix(in oklch,var(--hypothesis) 6%,var(--paper)); }
+.caveats ul{ margin:7px 0 0; padding-left:19px; }
+.caveats li{ margin:5px 0; font-size:13.5px; line-height:1.45; }
+.assurance-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin:10px 0 16px; }
+.assurance-card{ padding:14px; border:1px solid var(--line); border-radius:var(--r1); background:var(--card); }
+.assurance-card .av{ display:block; font:600 28px/1 var(--display); letter-spacing:-.03em; }
+.assurance-card .al{ display:block; margin-top:5px; color:var(--muted); font:600 9.5px/1.5 var(--mono);
+                     text-transform:uppercase; letter-spacing:.08em; }
+.stage-grid{ display:grid; grid-template-columns:1fr; gap:14px; margin:14px 0; }
+.stage-panel{ border:1px solid var(--line); border-radius:var(--r2); background:var(--card); overflow:hidden; }
+.stage-panel header{ padding:13px 15px; background:var(--soft); border-bottom:1px solid var(--line); }
+.stage-panel header h3{ margin:0; font-size:17px; }
+.stage-panel .stage-body{ padding:0 15px 12px; }
+.exec-visuals{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:0 0 22px; }
+.exec-chart{ min-width:0; border:1px solid var(--line); border-radius:var(--r2); background:var(--card);
+             padding:14px 15px 12px; box-shadow:var(--shadow); }
+.exec-chart h3{ margin:0 0 2px; font:700 14px/1.25 var(--display); }
+.exec-chart .chart-sub{ min-height:30px; color:var(--muted); font-size:11px; line-height:1.35; }
+.exec-chart svg{ display:block; width:100%; height:auto; margin-top:8px; }
+.chart-foot{ margin-top:7px; color:var(--muted); font:10px/1.35 var(--mono); }
+.driver-compare{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:14px 0; }
+.driver-panel{ min-width:0; border:1px solid var(--line); border-radius:var(--r2); background:var(--card); overflow:hidden; }
+.driver-panel header{ padding:12px 14px; border-bottom:1px solid var(--line); background:var(--soft); }
+.driver-panel header h3{ margin:0; font-size:16px; }
+.driver-panel .driver-body{ padding:0 13px 10px; }
+.route-compare{ overflow-x:auto; margin:14px 0; border:1px solid var(--line); border-radius:var(--r2); }
+.route-compare table{ min-width:980px; margin:0; }
+.reg-timeline{ display:grid; grid-template-columns:repeat(var(--rcount,5),minmax(112px,1fr)); gap:0; margin:16px 0;
+               overflow-x:auto; padding:3px 0 12px; }
+.reg-event{ min-width:112px; position:relative; padding:28px 10px 10px; border-top:2px solid var(--accent); }
+.reg-event::before{ content:''; position:absolute; width:10px; height:10px; border-radius:50%; left:12px; top:-6px;
+                    background:var(--accent); box-shadow:0 0 0 4px var(--paper); }
+.reg-event .ry{ font:700 10px/1.4 var(--mono); color:var(--accent-ink); }
+.reg-event .rt{ margin-top:4px; font-size:12.5px; line-height:1.35; font-weight:600; }
+.policy-status{ display:inline-block; margin-top:7px; padding:2px 7px; border-radius:5px;
+                font:700 8.5px/1.5 var(--mono); letter-spacing:.07em; text-transform:uppercase; }
+.policy-law{ color:#0f5132; background:#d9f5e7; }
+.policy-proposal{ color:#7a4b00; background:#fff0c2; }
+.policy-expected{ color:#174a73; background:#dceeff; }
+.policy-legend{ display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin:-4px 0 8px;
+                color:var(--muted); font:11px/1.5 var(--mono); }
+.impact-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+.impact-card{ --ic:var(--muted); border:1px solid var(--line); border-top:3px solid var(--ic);
+              border-radius:var(--r1); padding:12px 13px; background:var(--card); }
+.impact-card .it{ font-weight:700; font-size:13px; line-height:1.3; }
+.impact-card .im{ margin-top:6px; color:var(--muted); font-size:12.5px; line-height:1.4; }
 /* Harvey balls are drawn, not font glyphs. Every state has identical geometry;
    only the filled arc and semantic colour change. */
 .harvey{ --hp:25%; --hc:var(--muted); display:inline-block; width:16px; height:16px;
@@ -337,6 +408,11 @@ button:focus-visible,a:focus-visible{ outline:3px solid var(--accent); outline-o
   table.pt,table.sumz,table.calc-t,table.mx{ display:block; max-width:100%; overflow-x:auto;
                                             -webkit-overflow-scrolling:touch; }
   .reportfoot{ flex-direction:column; }
+  .scopebar{ grid-template-columns:1fr 1fr; }
+  .story-grid,.stage-grid,.impact-grid,.exec-visuals,.driver-compare,.scenario-grid{ grid-template-columns:1fr; }
+  .exec-chart .chart-sub{ min-height:0; }
+  .assurance-grid{ grid-template-columns:1fr 1fr; }
+  .viewhint{ align-items:flex-start; flex-wrap:wrap; }
 }
 </style></head><body><main class='wrap'><header class='reportmast'><div class='masttop'><a class='mastbrand' href='./index.html'>Intellect</a><span class='mastkind'>Market &amp; Competitive Intelligence</span></div><h1>Automotive Aftermarket — Competitive & Pricing Landscape</h1><div class='mastline'></div><p class='mastsub'>Decision-grade analysis: the answer first, the evidence beneath it, and every material figure sourced or explicitly flagged.</p></header><details class='legend legend-fixed'><summary>Confidence &amp; source key</summary><div class='ltitle'>Confidence</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>CONFIRMED</span> — ≥2 independent sources agree (or independently verified)</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>RESEARCHED</span> — backed by one cited source</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>HYPOTHESIS</span> — the model&#x27;s estimate — unverified, given as a range</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>CONFLICTING</span> — sources disagree beyond tolerance — shown as a range</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>SINGLE_SOURCE</span> — only one source found</span></div><div style='height:10px'></div><div class='ltitle'>Audit verdicts</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>HOLDS</span> — independently corroborated</span></div><div class='li'><span class='dot' style='background:#ea580c'></span><span><span class='lk' style='color:#ea580c'>OVERSTATED</span> — right direction, magnitude too strong</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>REFUTED</span> — contradicted by what was found</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>UNCERTAIN</span> — could not be independently confirmed</span></div><div style='height:10px'></div><div class='ltitle'>Source quality</div><div class='li'><span class='dot' style='background:#0f9d6e'></span><span><span class='lk' style='color:#0f9d6e'>Authoritative</span> — official statistics, regulators, standards bodies, research institutes</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>Reputable</span> — established press and major industry research</span></div><div class='li'><span class='dot' style='background:#94a3b8'></span><span><span class='lk' style='color:#94a3b8'>Other</span> — vendor, trade or unattributed — read with care</span></div></details><div class='asof'>&#9679; Point-in-time report &middot; data as of <b>2 September 2026</b> &middot; every figure links to its source</div><div class='tabbar'><button class='tab active' data-t='results'>Results</button><button class='tab' data-t='method'>Methodology</button></div><div id='tab-results'><div class='slidehead'><div class='decksec'>Pricing &amp; Sellers</div><h1>Autodoc is the structural winner of the European online aftermarket: at <span class='kf'>€1.55bn</span> revenue (+<span class='kf'>18.9%</span> in 2024) across 27 countries it is roughly 6–<span class='kf'>8x</span> the next pure-play, and its moat is pan-European reach against rivals that are national (kfzteile24 ~<span class='kf'>94%</span> Germany; Oscaro France-led) or captive (Mister-Auto/Stellantis, ATU/Mobivia).</h1><div class='deckq'>Where is price set, and which sellers shape the benchmark?</div></div>
 <p class='sub'>Europe &middot; June 2026 &middot; benchmark: <b>Autodoc</b></p>
