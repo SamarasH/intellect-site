@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap'><title>Automotive Aftermarket — Competitive &amp; Pricing Landscape</title><style>
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Automotive Aftermarket — Competitive &amp; Pricing Landscape</title><style>
 /* ===== Design tokens — warm editorial, OKLCH, one source of truth ===== */
 :root{
   /* surfaces */
@@ -35,7 +35,7 @@
   --lift:0 10px 30px oklch(0.27 0.045 255 / .12);
 }
 *{ box-sizing:border-box; }
-html,body{ max-width:100%; overflow-x:hidden; }
+html,body{ max-width:100%; overflow-x:clip; }
 body{ margin:0; background:var(--paper); color:var(--ink); font:17px/1.65 var(--sans);
       -webkit-font-smoothing:antialiased; }
 svg text{ font-family:var(--mono); }
@@ -172,6 +172,39 @@ table.pt{ width:100%; border-collapse:collapse; margin-top:8px; font-size:13.5px
 table.pt th{ text-align:left; color:var(--muted); font:600 10px/1.6 var(--mono); text-transform:uppercase;
              letter-spacing:.1em; border-bottom:2px solid var(--line); padding:6px 8px; }
 table.pt td{ border-bottom:1px solid var(--line); padding:7px 8px; vertical-align:top; }
+/* industry structure + value pools */
+.vp-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:12px 0 24px; }
+.vp-card{ border:1px solid var(--line); border-radius:var(--r2); background:var(--card); padding:17px 18px;
+          box-shadow:var(--shadow); min-width:0; }
+.vp-head{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; margin-bottom:5px; }
+.vp-head h3{ margin:0; font:600 18px/1.25 var(--serif); color:var(--ink); }
+.vp-kicker{ font:600 9.5px/1.5 var(--mono); text-transform:uppercase; letter-spacing:.1em; color:var(--accent-ink); }
+.vp-scope{ color:var(--muted); font-size:12.5px; line-height:1.45; min-height:36px; margin:5px 0 13px; }
+.vp-label{ display:flex; justify-content:space-between; gap:8px; align-items:end; margin:4px 0 6px; }
+.vp-label b{ font-size:13px; }.vp-label span{ color:var(--muted); font-size:11px; text-align:right; }
+.vp-bar{ display:flex; height:35px; overflow:hidden; border-radius:7px; background:var(--soft); border:1px solid var(--line); }
+.vp-seg{ display:flex; align-items:center; justify-content:center; min-width:2px; color:#fff;
+         font:700 10px/1 var(--mono); border-right:2px solid var(--card); }
+.vp-seg:nth-child(1){ background:var(--accent); }.vp-seg:nth-child(2){ background:#d98f2b; }
+.vp-seg:nth-child(3){ background:#4f7f76; }.vp-seg:nth-child(4){ background:#7a68a6; }
+.vp-legend{ display:grid; gap:6px; margin-top:10px; }
+.vp-row{ display:grid; grid-template-columns:10px minmax(110px,1fr) auto; gap:8px; align-items:start;
+         font-size:12.5px; line-height:1.35; }
+.vp-dot{ width:9px; height:9px; border-radius:2px; margin-top:4px; background:var(--accent); }
+.vp-row:nth-child(2) .vp-dot{background:#d98f2b}.vp-row:nth-child(3) .vp-dot{background:#4f7f76}
+.vp-row:nth-child(4) .vp-dot{background:#7a68a6}.vp-pct{ font:700 12px/1.4 var(--mono); white-space:nowrap; }
+.vp-gap{ padding:10px 12px; border-radius:var(--r1); background:var(--soft); color:var(--muted);
+         font-size:12.5px; line-height:1.45; }
+.vp-read{ margin-top:12px; padding-top:10px; border-top:1px solid var(--line); font-size:12.5px; line-height:1.45; }
+.vp-conc{ margin-top:10px; display:flex; gap:7px; align-items:flex-start; font-size:12px; color:var(--muted); }
+.vp-components{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:10px; margin:10px 0 22px; }
+.vp-component{ border:1px solid var(--line); border-radius:var(--r1); padding:13px 14px; background:var(--card); }
+.vp-component h3{ margin:2px 0 5px; font-size:15px; }.vp-makers{ color:var(--accent-ink); font-weight:600; font-size:12.5px; }
+.vp-component p{ margin:7px 0 0; font-size:12.5px; line-height:1.45; color:var(--muted); }
+.vp-controls{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px; margin:10px 0 18px; }
+.vp-control{ border-left:4px solid var(--accent); border-radius:var(--r1); padding:12px 14px;
+             background:color-mix(in oklch,var(--accent) 6%,var(--card)); font-size:13px; line-height:1.48; }
+@media(max-width:680px){.vp-grid{grid-template-columns:1fr}.vp-scope{min-height:0}}
 /* synthesis */
 .exec{ background:linear-gradient(180deg, color-mix(in oklch, var(--accent) 7%, var(--paper)), var(--card));
        border:1px solid color-mix(in oklch, var(--accent) 22%, transparent); border-radius:var(--r3);
@@ -231,6 +264,8 @@ table.mx th{ text-align:right; padding:7px 8px; border-bottom:2px solid var(--li
 table.mx th.l, table.mx td.l{ text-align:left; }
 table.mx td{ padding:7px 8px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap;
              font-variant-numeric:tabular-nums; }
+.tblwrap{ max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.tblwrap table{ min-width:620px; }
 table.mx .anchor{ color:var(--accent-ink); }
 table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bottom:0; }
 .cell-na{ color:var(--muted); }
@@ -254,7 +289,7 @@ table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bott
 .legend .li{ display:flex; gap:8px; align-items:flex-start; margin:7px 0; font-size:12px; line-height:1.35; }
 .legend .dot{ width:11px; height:11px; border-radius:3px; margin-top:2px; flex:none; }
 .legend .lk{ font-weight:700; }
-.legend-fixed{ position:fixed; top:16px; left:16px; width:190px; z-index:20; box-shadow:var(--lift); }
+.legend-fixed{ position:static; width:auto; margin:0 0 18px; box-shadow:none; }
 .legend-fixed summary{ cursor:pointer; color:var(--accent-ink); font:600 10.5px/1.6 var(--mono);
                        text-transform:uppercase; letter-spacing:.08em; list-style-position:inside; }
 .legend-fixed:not([open]){ width:auto; padding:8px 11px; }
@@ -289,7 +324,7 @@ table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bott
 .stab-full{ margin-left:auto; color:var(--accent-ink);
             background:color-mix(in oklch, var(--accent) 9%, transparent); }
 .stab-full.active{ background:color-mix(in oklch, var(--accent) 14%, transparent); }
-.secpane{ animation:fade .18s ease; }
+.secpane{ animation:none; }
 @keyframes fade{ from{ opacity:0; transform:translateY(3px); } to{ opacity:1; transform:none; } }
 .asof{ font:12.5px/1.5 var(--mono); color:var(--muted); background:var(--soft); border:1px solid var(--line);
        border-radius:var(--r1); padding:6px 12px; margin:0 0 14px; display:inline-block; }
@@ -362,10 +397,53 @@ table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bott
                background:color-mix(in oklch,var(--accent) 3%,var(--card)); }
 .api-evidence > h2{ margin-top:0; }
 .api-chart-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px; }
+.expert-panel-charts{ grid-template-columns:1fr; }
 .api-chart{ min-width:0; border:1px solid var(--line); border-radius:var(--r1); background:var(--card); padding:13px 14px; }
 .api-chart h3{ margin:0; min-height:36px; font-size:14px; line-height:1.28; }
 .api-chart svg{ width:100%; height:auto; display:block; margin-top:6px; }
 .api-chart .chart-foot{ min-height:30px; }
+.panel-status{ display:flex; align-items:center; gap:10px; margin:0 0 14px; padding:10px 13px;
+               border:1px solid color-mix(in oklch,var(--hypothesis) 30%,var(--line));
+               border-radius:var(--r1); background:color-mix(in oklch,var(--hypothesis) 6%,var(--card));
+               color:var(--ink); font-size:13px; line-height:1.4; }
+.panel-icon{ width:22px; height:22px; flex:none; color:var(--accent-ink); }
+.api-chart svg.panel-icon{ width:22px; height:22px; margin:0; }
+.metric .panel-icon{ width:20px; height:20px; margin-bottom:8px; }
+.panel-bar-chart,.opinion-chart{ margin-top:14px; }
+.panel-bar-row{ display:grid; grid-template-columns:minmax(170px,260px) minmax(180px,1fr) 138px;
+                gap:12px; align-items:center; padding:8px 0; border-bottom:1px solid var(--line); }
+.panel-bar-label,.opinion-label-main{ display:flex; align-items:flex-start; gap:9px; min-width:0;
+                                      font-size:14px; font-weight:700; line-height:1.3; }
+.panel-bar-label .panel-icon,.opinion-label-main .panel-icon{ width:19px; height:19px; margin-top:0; }
+.panel-bar-track{ height:14px; border-radius:999px; background:var(--soft); overflow:hidden; position:relative; }
+.panel-bar-fill{ height:100%; min-width:3px; border-radius:inherit; background:var(--accent); }
+.panel-bar-value{ color:var(--muted); font:11.5px/1.35 var(--mono); text-align:right; }
+.panel-target{ margin-top:10px; color:var(--muted); font:11px/1.45 var(--mono); }
+.opinion-axis{ display:grid; grid-template-columns:minmax(220px,310px) 1fr 180px; gap:14px;
+               align-items:end; margin-bottom:3px; color:var(--muted); font:700 10px/1.4 var(--mono);
+               letter-spacing:.07em; text-transform:uppercase; }
+.opinion-axis-scale{ display:flex; justify-content:space-between; }
+.opinion-row{ display:grid; grid-template-columns:minmax(220px,310px) minmax(220px,1fr) 180px;
+              gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); }
+.opinion-label{ min-width:0; }
+.opinion-claim{ margin:4px 0 0 28px; color:var(--muted); font-size:12px; line-height:1.38; }
+.opinion-track{ position:relative; height:18px; border-radius:999px;
+                background:linear-gradient(90deg,color-mix(in oklch,var(--conflicting) 12%,var(--soft)) 0 49.5%,
+                var(--line) 49.5% 50.5%,color-mix(in oklch,var(--confirmed) 12%,var(--soft)) 50.5% 100%); }
+.opinion-track::after{ content:''; position:absolute; left:50%; top:-4px; bottom:-4px; width:1px; background:var(--muted); }
+.opinion-marker{ position:absolute; top:50%; left:var(--position); width:16px; height:16px; border-radius:50%;
+                 transform:translate(-50%,-50%); background:var(--marker,var(--muted)); border:3px solid var(--card);
+                 box-shadow:0 0 0 1px var(--marker,var(--muted)); z-index:1; }
+.opinion-row.insufficient .opinion-track{ opacity:.55; }
+.opinion-row.insufficient .opinion-marker{ background:var(--card); border:2px dashed var(--muted); box-shadow:none; }
+.opinion-read{ min-width:0; font-size:12.5px; font-weight:700; line-height:1.32; }
+.opinion-read small{ display:block; margin-top:3px; color:var(--muted); font:10.5px/1.35 var(--mono); font-weight:500; }
+.panel-gap{ display:flex; gap:10px; align-items:flex-start; margin-top:12px; padding:11px 13px;
+            border-radius:var(--r1); background:var(--soft); color:var(--muted); font-size:12.5px; line-height:1.45; }
+.panel-gap span{ min-width:0; overflow-wrap:anywhere; }
+.panel-implication{ margin:16px 0 20px; padding:13px 15px; border-left:4px solid var(--accent);
+                    border-radius:0 var(--r1) var(--r1) 0; background:var(--soft); font-size:13.5px; line-height:1.48; }
+.panel-implication b{ color:var(--accent-ink); }
 .driver-compare{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:14px 0; }
 .driver-panel{ min-width:0; border:1px solid var(--line); border-radius:var(--r2); background:var(--card); overflow:hidden; }
 .driver-panel header{ padding:12px 14px; border-bottom:1px solid var(--line); background:var(--soft); }
@@ -428,7 +506,7 @@ table.mx .idx td{ font-weight:700; border-top:2px solid var(--line); border-bott
          min-width:21px; border-radius:50%; vertical-align:-5px;
          background:conic-gradient(var(--hc) var(--hp),var(--soft) 0);
          border:2px solid var(--hc); box-shadow:inset 0 0 0 1px var(--card); }
-.harvey-100{ --hp:100%; } .harvey-75{ --hp:75%; }
+.harvey-100{ --hp:100%; background:var(--hc); } .harvey-75{ --hp:75%; }
 .harvey-50{ --hp:50%; } .harvey-25{ --hp:25%; }
 .confcell{ width:88px; text-align:left; white-space:nowrap; }
 .impact-label{ display:inline-block; margin-left:7px; color:var(--ink); font-size:11.5px;
@@ -453,13 +531,107 @@ button:focus-visible,a:focus-visible{ outline:3px solid var(--accent); outline-o
   .exec-chart .chart-sub{ min-height:0; }
   .assurance-grid{ grid-template-columns:1fr 1fr; }
   .viewhint{ align-items:flex-start; flex-wrap:wrap; }
+  .panel-bar-row{ grid-template-columns:1fr auto; gap:7px 10px; }
+  .panel-bar-track{ grid-column:1/-1; grid-row:2; }
+  .opinion-axis{ grid-template-columns:1fr; }
+  .opinion-axis > span:first-child,.opinion-axis > span:last-child{ display:none; }
+  .opinion-row{ grid-template-columns:1fr; gap:8px; padding:14px 0; }
+  .opinion-claim{ font-size:12.5px; }
+  .opinion-read{ font-size:13px; }
 }
-</style></head><body><main class='wrap'><header class='reportmast'><div class='masttop'><a class='mastbrand' href='./index.html'>Intellect</a><span class='mastkind'>Market &amp; Competitive Intelligence</span></div><h1>Automotive Aftermarket — Competitive & Pricing Landscape</h1><div class='mastline'></div><p class='mastsub'>Decision-grade analysis: the answer first, the evidence beneath it, and every material figure sourced or explicitly flagged.</p></header><details class='legend legend-fixed'><summary>Confidence &amp; source key</summary><div class='ltitle'>Confidence</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>CONFIRMED</span> — ≥2 independent sources agree (or independently verified)</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>RESEARCHED</span> — backed by one cited source</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>HYPOTHESIS</span> — the model&#x27;s estimate — unverified, given as a range</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>CONFLICTING</span> — sources disagree beyond tolerance — shown as a range</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>SINGLE_SOURCE</span> — only one source found</span></div><div style='height:10px'></div><div class='ltitle'>Audit verdicts</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>HOLDS</span> — independently corroborated</span></div><div class='li'><span class='dot' style='background:#ea580c'></span><span><span class='lk' style='color:#ea580c'>OVERSTATED</span> — right direction, magnitude too strong</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>REFUTED</span> — contradicted by what was found</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>UNCERTAIN</span> — could not be independently confirmed</span></div><div style='height:10px'></div><div class='ltitle'>Source quality</div><div class='li'><span class='dot' style='background:#0f9d6e'></span><span><span class='lk' style='color:#0f9d6e'>Authoritative</span> — official statistics, regulators, standards bodies, research institutes</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>Reputable</span> — established press and major industry research</span></div><div class='li'><span class='dot' style='background:#94a3b8'></span><span><span class='lk' style='color:#94a3b8'>Other</span> — vendor, trade or unattributed — read with care</span></div></details><div class='asof'>&#9679; Point-in-time report &middot; data as of <b>8 September 2026</b> &middot; every figure links to its source</div><div class='tabbar'><button class='tab active' data-t='results'>Results</button><button class='tab' data-t='method'>Methodology</button></div><div id='tab-results'><div class='slidehead'><div class='decksec'>Pricing &amp; Sellers</div><h1>For the same VW Group oil-filter reference at one German retailer, the complete selected 15-brand benchmark spans <span class='kf'>€6.58</span>–<span class='kf'>€14.48 </span>including VAT and excluding delivery.</h1><div class='deckq'>Where is price set, and which sellers shape the benchmark?</div></div>
+/* Study reading surface: immediately visible, persistent desktop navigation. */
+.wrap{max-width:1440px;padding-top:20px}
+.reportmast{padding:20px 24px!important;margin-bottom:14px!important}
+.reportmast h1{font-size:clamp(24px,3vw,34px)!important;max-width:none!important;margin:10px 0!important}
+.reportmast .mastsub,.reportmast .mastline{display:none}
+.study-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:26px;align-items:start}
+.sectabs{position:sticky;top:12px;display:flex;flex-direction:column;align-items:stretch;gap:4px;flex-wrap:nowrap;overflow:visible;border:1px solid var(--line);padding:10px;border-radius:12px;background:var(--card)}
+.stab{text-decoration:none;font:600 14px/1.4 var(--sans);letter-spacing:0;text-transform:none;white-space:normal;text-align:left;min-height:44px;margin:0;padding:11px 12px;border:0;border-radius:6px;color:var(--ink)}
+.stab.active{background:#e2f2eb;color:#075c4a;box-shadow:inset 3px 0 #0f766e}
+.stab-full{margin:10px 0 0;border-top:1px solid var(--line);border-radius:0}
+.secbody{min-width:0}.section-picker{display:none}
+.study-status{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:12px 16px;margin:0 0 16px;border:1px solid var(--line);background:var(--soft);border-radius:9px}
+.study-status strong{color:#92520c}.study-status.ready strong{color:#075c4a}
+.study-status a{margin-left:auto}.section-state{padding:9px 12px;background:#fff3df;color:#784b14;border-left:3px solid #c45d12;margin-bottom:14px;font-size:13px}
+.driver-compare{grid-template-columns:1fr;gap:22px}.factor-table{width:100%;table-layout:fixed}
+.factor-table th:first-child{width:34px}.factor-table th:nth-child(3){width:130px}.factor-table th:last-child{width:112px}
+.factor-table td{vertical-align:top;overflow-wrap:anywhere}.factor-rank{font-variant-numeric:tabular-nums;color:var(--muted)}
+.factor-detail{margin-top:6px;font-size:13px}.factor-detail summary{cursor:pointer;color:var(--accent-ink);font-size:12px;padding:4px 0}.factor-detail p{margin:8px 0}
+.factor-evidence{font-size:12px}.harvey-0{--hp:0%}.confcell .impact-label{white-space:normal}
+.report-audit-details{margin-top:22px}.heroband{font-size:12px;padding:9px 14px;margin-top:20px}
+@media(max-width:760px){
+ .study-layout{grid-template-columns:1fr;gap:0}.sectabs{display:none}
+ .section-picker{display:flex;position:sticky;top:0;z-index:12;gap:10px;align-items:center;background:var(--paper);padding:10px 0}
+ .section-picker select{width:100%;min-width:0;font:16px var(--sans);padding:11px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:7px}
+ .factor-table th:first-child{width:25px}.factor-table th:nth-child(3){width:86px}.factor-table th:last-child{width:82px}
+ .factor-table td,.factor-table th{padding:9px 5px;font-size:12px}.factor-table .sub{font-size:11px}
+ .driver-panel .driver-body{padding:0 5px 8px}.reportmast{padding:16px!important}
+}
+@media(prefers-reduced-motion:reduce){.secpane{animation:none}}
+/* Reader refinements: full labels, compact text units and locally scrollable tables. */
+.wrap{max-width:1680px}.study-layout{grid-template-columns:210px minmax(0,1fr);gap:24px}
+.secbody,.secpane,.stage-body{min-width:0}
+.reader-table{width:100%;overflow-x:auto;overscroll-behavior-x:contain;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.reader-table table{width:100%;table-layout:fixed;min-width:980px;margin:0}
+.reader-table table th{font:600 13px/1.45 var(--sans);text-transform:none;letter-spacing:0;padding:15px 18px;background:var(--soft)}
+.reader-table table td{font-size:14px;line-height:1.5;padding:17px 18px;vertical-align:top;overflow-wrap:anywhere}
+.stage-body.reader-table table{min-width:900px}
+.stage-body.reader-table th:first-child{width:26%}.stage-body.reader-table th:nth-child(2){width:39%}.stage-body.reader-table th:nth-child(3){width:35%}
+.reader-table tr+tr td{border-top:1px solid var(--line)}
+.reader-table .sub,.reader-table .small{font-size:13px;line-height:1.5}
+.reading-unit{display:block;line-height:1.5;overflow-wrap:anywhere;max-width:76ch}
+.read-more{margin:6px 0}.read-more summary{font:600 12px/1.5 var(--sans);color:var(--accent-ink);cursor:pointer;text-transform:none;letter-spacing:0}
+.read-more p{margin:8px 0}.read-more[open]{padding-bottom:5px}
+.evidence-qualification{margin:8px 0}.evidence-qualification summary{font:600 12px/1.5 var(--sans);color:var(--accent-ink);cursor:pointer}.evidence-qualification .reading-unit{margin:6px 0}
+.channel-badges,.channel-legend{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.channel-badge{display:inline-flex;align-items:center;gap:7px;border:1px solid color-mix(in srgb,var(--channel) 30%,white);background:color-mix(in srgb,var(--channel) 7%,white);color:var(--channel);font:600 12px/1.5 var(--sans);padding:5px 9px;border-radius:6px;white-space:normal}
+.channel-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--channel);flex:none}
+.route-members th:nth-child(1){width:24%}.route-members th:nth-child(2){width:42%}.route-members th:nth-child(3){width:34%}
+.route-position{padding:5px 0 10px}.route-position+.route-position{border-top:1px dashed var(--line)}.route-position>span:last-child{display:block;font-size:13px}
+.route-compare{max-width:100%}.route-compare table{min-width:900px}.route-compare td{font-size:14px}
+.market-value-mix{border:1px solid var(--line);border-radius:12px;padding:16px 20px;background:var(--card)}
+.mix-row{display:grid;grid-template-columns:220px minmax(140px,1fr) 140px;align-items:center;gap:18px;padding:15px 0;font-size:15px}
+.mix-row>strong{text-align:right;font-size:16px}.mix-track{height:18px;background:var(--soft);border-radius:5px;overflow:hidden}.mix-track span{display:block;height:100%}.mix-missing{color:var(--muted);font-size:14px}
+.price-build{padding:18px 0}.price-build h3{font-size:18px}.build-legend{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0 18px;font-size:13px}
+.build-legend span{display:flex;align-items:center;gap:7px}.build-legend i{width:14px;height:14px;border-radius:3px}
+.build-table{min-width:900px!important}.build-table th:nth-child(1){width:32%}.build-table th:nth-child(2){width:36%}.build-table th:nth-child(3){width:18%}.build-table th:nth-child(4){width:14%}
+.build-track{height:24px;position:relative;background:var(--soft);border-radius:3px}.build-track span{display:block;position:absolute;top:0;height:100%;min-width:1px;border-radius:3px}
+.build-value,.build-change{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}.step-number,.claim-number{display:block;color:var(--muted);font:600 12px/1.5 var(--mono);margin-bottom:6px}
+.expert-claims table{min-width:900px}.expert-claims th:nth-child(1){width:37%}.expert-claims th:nth-child(2){width:26%}.expert-claims th:nth-child(3){width:37%}
+.stance-counts{display:flex;gap:6px;flex-wrap:wrap}.stance-counts span{border-radius:5px;font-size:12px;font-weight:600;padding:4px 7px}
+.stance-support{color:#075c4a;background:#e2f2eb}.stance-challenge{color:#9f2525;background:#fce6e6}.stance-conditional{color:#9a4d11;background:#fff0dc}
+.expert-view{padding:12px 0;border-bottom:1px solid var(--line)}.expert-view>a{font-size:12px}.expert-view .reading-unit{margin:6px 0}
+.expert-claims .detail-block summary{font:600 12px/1.5 var(--sans);text-transform:none;letter-spacing:0}
+.reg-timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;padding:12px 0;background:none;overflow:visible}
+.reg-event{padding:16px;min-width:0;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:9px;background:var(--card)}
+.reg-event .rt{font-size:15px;line-height:1.4;min-height:0;overflow:visible}.reg-event .ry{font-size:22px}.reg-event:before,.reg-event:after{display:none}
+.reg-event .ry.ry-long{font-size:14px;line-height:1.5}
+.reader-table table.route-prices{min-width:900px;table-layout:fixed}.route-prices th:first-child{width:43%}.route-prices th:nth-child(2){width:22%}.route-prices th:nth-child(3){width:35%}
+.pool-measures{min-width:1100px;table-layout:fixed}.pool-measures th:first-child{width:26%}.pool-measures th:last-child{width:30%}.vp-measure{margin:12px 0;padding:10px 0;border-bottom:1px solid var(--line)}.vp-measure .vp-bar{margin:6px 0;height:8px}.vp-measure .vp-seg{flex:none}
+.policy-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:14px 0}.policy-filter{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink)}.reg-event[hidden]{display:none!important}
+.criticality-legend{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.criticality{display:inline-block;padding:4px 8px;border-radius:5px;font-size:12px;font-weight:650;margin:8px 4px 0 0}
+.criticality-high{color:#9f2525;background:#fce6e6}.criticality-medium{color:#9a4d11;background:#fff0dc}.criticality-low{color:#334155;background:#e7eef5}.criticality-unassessed{color:#64748b;background:#f1f5f9}
+.secpane>.sub,.scopeitem .sv{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+.opinion-claim{font-size:13px}.opinion-row{grid-template-columns:minmax(260px,1.2fr) minmax(160px,1fr) 175px}
+@media(max-width:1100px){.study-layout{grid-template-columns:1fr}.sectabs{display:none}.section-picker{display:flex;position:sticky;top:0;z-index:12;gap:10px;align-items:center;background:var(--paper);padding:10px 0}.section-picker select{width:100%;min-width:0;font:16px var(--sans);padding:11px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:7px}}
+@media(max-width:760px){.study-layout{grid-template-columns:1fr}.mix-row{grid-template-columns:1fr 120px;gap:8px}.mix-row>div{grid-column:1/-1;grid-row:auto}.mix-row>strong{text-align:left}.reader-table table{display:table;max-width:none;overflow:visible}.opinion-row{grid-template-columns:1fr}.reg-timeline{grid-template-columns:1fr}.reader-table td{padding:14px}.market-value-mix{padding:12px}.story-grid{grid-template-columns:1fr}}
+
+@media(max-width:1100px){
+ .expert-claims table{display:block!important;min-width:0!important;width:100%;table-layout:auto}.expert-claims thead{display:none}.expert-claims tbody{display:block}.expert-claims tr{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:2px solid var(--line)}.expert-claims td{display:block;min-width:0;border:0!important}.expert-claims td:first-child{grid-column:1/-1;padding-bottom:4px}.expert-claims td:before{content:attr(data-label);display:block;font-size:12px;font-weight:650;color:var(--muted);margin-bottom:8px}.expert-claims .reading-unit{max-width:100%}
+}
+@media(max-width:600px){.expert-claims tr{grid-template-columns:1fr}.expert-claims td{padding:12px 16px}.expert-claims td:first-child{grid-column:auto}}
+
+.factor-title{font-weight:700}.factor-title .read-more{font-weight:400}
+@media(max-width:760px){
+ .factor-table{display:block!important;width:100%;table-layout:auto}.factor-table thead{display:none}.factor-table tbody{display:block}.factor-table tr{display:grid;grid-template-columns:24px minmax(0,1fr) 88px;border-bottom:1px solid var(--line)}.factor-table td{display:block;min-width:0;border:0;padding:12px 5px}.factor-table td:last-child{grid-column:2/4;padding-top:0}.factor-table td:last-child:before{content:'Reported tier: ';font-size:11px;color:var(--muted)}.factor-table .reading-unit{max-width:100%}
+}
+
+</style></head><body><main class='wrap'><aside class="working-study-notice" role="note" style="margin:16px 0;padding:16px;border-left:4px solid #c45d12;background:#fff7ed;color:#713f12"><strong>Working study · independent review pending</strong><br>This research preview includes estimates and assumptions. Findings remain subject to the evidence qualifications and source dates shown in the study; it is not a final independently approved report.</aside><header class='reportmast'><div class='masttop'><a class='mastbrand' href='./index.html'>Intellect</a><span class='mastkind'>Market &amp; Competitive Intelligence</span></div><h1>Automotive Aftermarket — Competitive &amp; Pricing Landscape</h1><div class='mastline'></div><p class='mastsub'>Market findings: the answer first, the evidence beneath it, and every material figure sourced or explicitly flagged.</p></header><details class='legend legend-fixed'><summary>Confidence &amp; source key</summary><div class='ltitle'>Confidence</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>CONFIRMED</span> — reported research tier; current independent support is recorded in the source audit</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>RESEARCHED</span> — backed by one cited source</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>HYPOTHESIS</span> — a qualitative assumption, scenario or unresolved input; not a verified fact</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>CONFLICTING</span> — evidence remains unreconciled; no defensible range is implied</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>SINGLE_SOURCE</span> — one underlying evidence family; multiple URLs are not independent corroboration</span></div><div style='height:10px'></div><div class='ltitle'>Audit verdicts</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>HOLDS</span> — a supporting verdict; current usability also requires scope, revision and dependency checks</span></div><div class='li'><span class='dot' style='background:#ea580c'></span><span><span class='lk' style='color:#ea580c'>OVERSTATED</span> — right direction, magnitude too strong</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>REFUTED</span> — contradicted by what was found</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>UNCERTAIN</span> — could not be independently confirmed</span></div><div style='height:10px'></div><div class='ltitle'>Source quality</div><div class='li'><span class='dot' style='background:#0f9d6e'></span><span><span class='lk' style='color:#0f9d6e'>Authoritative</span> — official statistics, regulators, standards bodies, research institutes</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>Reputable</span> — established press and major industry research</span></div><div class='li'><span class='dot' style='background:#94a3b8'></span><span><span class='lk' style='color:#94a3b8'>Other</span> — vendor, trade or unattributed — read with care</span></div></details><div class='asof'>&#9679; Report edition &middot; <b>Saved pricing observations · format updated 2026-09-22</b> &middot; source periods and evidence are recorded in the audit</div><div class='tabbar'><button class='tab active' data-t='results'>Results</button><button class='tab' data-t='method'>Methodology</button></div><div id='tab-results'><label class='section-picker'>Sections <select aria-label='Study sections'><option value='synthesis'>Executive Summary</option><option value='pricing'>Pricing &amp; Sellers</option><option value='drivers'>Price Drivers</option><option value='verification'>Sources &amp; Assumptions</option><option value='full'>Full analysis</option></select></label><div class='study-layout'><nav class='sectabs' aria-label='Study sections'><a class='stab' href='#synthesis' data-p='synthesis'>Executive Summary</a><a class='stab' href='#pricing' data-p='pricing'>Pricing &amp; Sellers</a><a class='stab' href='#drivers' data-p='drivers'>Price Drivers</a><a class='stab' href='#verification' data-p='verification'>Sources &amp; Assumptions</a><a class='stab' href='#full' data-p='full'>Full analysis</a></nav><div class='secbody'><div class='secpane' id='sp-synthesis'><div class='slidehead'><div class='decksec'>Pricing &amp; Sellers</div><h1>For the same VW Group oil-filter reference at one German retailer, the complete selected 15-brand benchmark spans <span class='kf'>€6.58</span>–<span class='kf'>€14.48 </span>including VAT and excluding delivery.</h1><div class='deckq'>Where is price set, and which sellers shape the benchmark?</div></div>
 <p class='sub'>A complete selected-brand comparison for one exact VW Group engine-oil-filter reference. All 15 observations come from the same German retailer page &middot; SKU <b>03C 115 561 H</b> &middot; Germany</p>
 <div class='exec-visuals' aria-label='Automotive SKU pricing charts'><article class='exec-chart'><h3>Brand choice creates a wide price corridor</h3><div class='chart-sub'>15 compatible brand observations for SKU 03C 115 561 H</div><svg role='img' aria-label='Observed German SKU price range' viewBox='0 0 330 132' xmlns='http://www.w3.org/2000/svg'><line x1='28' y1='62' x2='302' y2='62' stroke='#e8e5df' stroke-width='8' stroke-linecap='round'/><line x1='139.2' y1='62' x2='272.6' y2='62' stroke='#0f9d6e' stroke-width='16' stroke-linecap='round'/><circle cx='208.4' cy='62' r='7' fill='#0f172a'/><text x='208.4' y='38' text-anchor='middle' font-size='12' font-weight='750' fill='#0f172a'>Median €10.68</text><text x='139.2' y='88' text-anchor='middle' font-size='10.5' font-weight='700' fill='#334155'>€6.58</text><text x='272.6' y='88' text-anchor='middle' font-size='10.5' font-weight='700' fill='#334155'>€14.48</text><text x='165' y='116' text-anchor='middle' font-size='10' font-weight='650' fill='#475569'>German checkout price incl. VAT (€)</text></svg><div class='chart-foot'>Germany · 8 September 2026 · cited retailer observations.</div></article><article class='exec-chart'><h3>Entry pricing is not one-brand dependent</h3><div class='chart-sub'>Five lowest observed compatible brand offers</div><svg role='img' aria-label='Five lowest observed brand prices' viewBox='0 0 330 132' xmlns='http://www.w3.org/2000/svg'><text x='112' y='23' text-anchor='end' font-size='9.5' fill='#334155'>RIDEX</text><rect x='120' y='14' width='73.0' height='11' rx='3' fill='#0f9d6e'/><text x='199.0' y='23' font-size='9.5' font-weight='750' fill='#0f172a'>€6.58</text><text x='112' y='44' text-anchor='end' font-size='9.5' fill='#334155'>BOSCH</text><rect x='120' y='35' width='94.1' height='11' rx='3' fill='#0f9d6e'/><text x='220.1' y='44' font-size='9.5' font-weight='750' fill='#0f172a'>€8.48</text><text x='112' y='65' text-anchor='end' font-size='9.5' fill='#334155'>Borsehung</text><rect x='120' y='56' width='105.2' height='11' rx='3' fill='#0f9d6e'/><text x='231.2' y='65' font-size='9.5' font-weight='750' fill='#0f172a'>€9.48</text><text x='112' y='86' text-anchor='end' font-size='9.5' fill='#334155'>FILTRON</text><rect x='120' y='77' width='106.3' height='11' rx='3' fill='#0f9d6e'/><text x='232.3' y='86' font-size='9.5' font-weight='750' fill='#0f172a'>€9.58</text><text x='112' y='107' text-anchor='end' font-size='9.5' fill='#334155'>MAHLE</text><rect x='120' y='98' width='110.8' height='11' rx='3' fill='#0f9d6e'/><text x='236.8' y='107' font-size='9.5' font-weight='750' fill='#0f172a'>€9.98</text><text x='210' y='124' text-anchor='middle' font-size='10' font-weight='650' fill='#475569'>German checkout price incl. VAT (€)</text></svg><div class='chart-foot'>Prices include VAT; delivery treatment follows the source listing.</div></article><article class='exec-chart'><h3>Premium pricing remains below €15 in the observed set</h3><div class='chart-sub'>Five highest observed compatible brand prices</div><svg role='img' aria-label='German SKU price or offer breadth by brand' viewBox='0 0 330 132' xmlns='http://www.w3.org/2000/svg'><text x='112' y='23' text-anchor='end' font-size='9.5' fill='#334155'>MEAT &amp; DORIA</text><rect x='120' y='14' width='157.1' height='11' rx='3' fill='#334155'/><text x='283.1' y='23' font-size='9.5' font-weight='750' fill='#0f172a'>€14.48</text><text x='112' y='44' text-anchor='end' font-size='9.5' fill='#334155'>BLUE PRINT</text><rect x='120' y='35' width='150.6' height='11' rx='3' fill='#334155'/><text x='276.6' y='44' font-size='9.5' font-weight='750' fill='#0f172a'>€13.88</text><text x='112' y='65' text-anchor='end' font-size='9.5' fill='#334155'>FEBI BILSTEIN</text><rect x='120' y='56' width='133.3' height='11' rx='3' fill='#334155'/><text x='259.3' y='65' font-size='9.5' font-weight='750' fill='#0f172a'>€12.28</text><text x='112' y='86' text-anchor='end' font-size='9.5' fill='#334155'>UFI</text><rect x='120' y='77' width='130.0' height='11' rx='3' fill='#334155'/><text x='256.0' y='86' font-size='9.5' font-weight='750' fill='#0f172a'>€11.98</text><text x='112' y='107' text-anchor='end' font-size='9.5' fill='#334155'>MANN-FILTER</text><rect x='120' y='98' width='127.8' height='11' rx='3' fill='#334155'/><text x='253.8' y='107' font-size='9.5' font-weight='750' fill='#0f172a'>€11.78</text><text x='210' y='124' text-anchor='middle' font-size='10' font-weight='650' fill='#475569'>German checkout price incl. VAT (€)</text></svg><div class='chart-foot'>One seller, one observation window; this is not a market average.</div></article></div>
 <div class='note'>A complete selected-brand comparison for one exact VW Group engine-oil-filter reference. All 15 observations come from the same German retailer page, include <span class='kf'>19%</span> VAT, exclude delivery and were observed in the same window. This keeps fitment, country, tax basis and channel constant; the page lists 110 compatible products in total, so the table is the complete declared 15-brand benchmark, not the complete catalogue.</div>
 <div class='note'>For the same VW Group oil-filter reference at one German retailer, the complete selected 15-brand benchmark spans <span class='kf'>€6.58</span>–<span class='kf'>€14.48 </span>including VAT and excluding delivery. Most observations cluster near the <span class='kf'>€10.68 m</span>edian, while the full corridor reaches <span class='kf'>2.2×</span> from entry to high end. The decision implication is brand architecture, not fitment, explains a material share of the visible price spread; cross-seller effects require a separate complete matrix.</div>
-<h2>Price matrix &mdash; brand &times; platform</h2>
+</div><div class='secpane' id='sp-pricing'><h2>Price matrix &mdash; brand &times; platform</h2>
 <div class='ci-legend'><b>15 of 15</b> cells verified &middot; &#9679; verified (source) &middot; &mdash; not found &middot; &middot; not carried &middot; per brand: <span style='color:#059669;font-weight:700'>cheapest</span> / <span style='color:#e11d48;font-weight:700'>dearest</span> platform</div>
 <div class='card' style='overflow-x:auto'><table class='mx'>
 <tr><th class='l'>Brand</th><th class=''>pkwteile.de</th></tr>
@@ -479,25 +651,87 @@ button:focus-visible,a:focus-visible{ outline:3px solid var(--accent); outline-o
 <tr><td class='l'><b>BLUE PRINT</b><br><span class='sub'>ADV182122</span></td><td style=''>&euro;13.88 <a class='src' href='https://www.pkwteile.de/oen/03c115561h' target='_blank' title='verified source'>&#9679;</a></td></tr>
 <tr><td class='l'><b>MEAT &amp; DORIA</b><br><span class='sub'>15575</span></td><td style=''>&euro;14.48 <a class='src' href='https://www.pkwteile.de/oen/03c115561h' target='_blank' title='verified source'>&#9679;</a></td></tr>
 </table></div>
-<h2>Why the prices differ</h2>
+</div><div class='secpane' id='sp-drivers'><h2>Why the prices differ</h2>
 <div class='syn-sec'><h3>The observed spread is material even after controlling for fitment and channel</h3>
 <ul><li>The selected 15-brand set spans <span class='kf'>€6.58 </span>to <span class='kf'>€14.48 </span>including German VAT and excluding delivery: the highest observed price is <span class='kf'>2.2×</span> the lowest.</li><li>The median is <span class='kf'>€10.68. </span>Ten of the 15 observations sit between <span class='kf'>€9.48 </span>and <span class='kf'>€11.98, </span>indicating a relatively tight mainstream band around the median.</li><li>RIDEX establishes the visible entry price at <span class='kf'>€6.58</span>; BLUE PRINT and MEAT &amp; DORIA form the high end of this selected benchmark at <span class='kf'>€13.88 </span>and <span class='kf'>€14.48.</span></li><li>Implication: brand position can move the ticket materially even when SKU, fitment, retailer, country and tax basis are held constant. This exhibit does not isolate manufacturer margin or product quality.</li></ul>
 </div>
 <div class='syn-sec'><h3>The complete table answers brand pricing, not seller pricing</h3>
 <ul><li>All 15 rows are observed on pkwteile.de in the same window, so the comparison avoids gaps and cross-retailer differences in promotions, shipping thresholds and storefront pricing.</li><li>The source page lists 110 compatible products; the declared universe here is the selected 15-brand benchmark shown in full, not every catalogue listing.</li><li>A seller-by-seller matrix should be added only when the same 15 references can be observed across every declared seller on the same VAT and delivery basis.</li></ul>
 </div>
-<h2>Flagged &amp; unverified</h2><div class='warn'><ul><li>Prices are point-in-time retailer observations and can change with promotions, stock and delivery thresholds.</li><li>All prices include <span class='kf'>19%</span> German VAT and exclude delivery, as stated on the source page.</li><li>This is the complete declared 15-brand benchmark on one retailer, not all 110 compatible catalogue items and not a seller-by-seller market comparison.</li></ul></div>
-</div><div id='tab-method' style='display:none'><h1>Methodology &amp; how to read this</h1>
+</div><div class='secpane' id='sp-verification'><h2>Flagged &amp; unverified</h2><div class='warn'><ul><li>Prices are point-in-time retailer observations and can change with promotions, stock and delivery thresholds.</li><li>All prices include <span class='kf'>19%</span> German VAT and exclude delivery, as stated on the source page.</li><li>This is the complete declared 15-brand benchmark on one retailer, not all 110 compatible catalogue items and not a seller-by-seller market comparison.</li></ul></div>
+</div></div></div><script>
+(function(){
+ if(!window.intellectNavigationInstalled){
+  window.intellectNavigationInstalled=true;
+  window.intellectSelectSection=function(key,scroll){
+   var panes=Array.from(document.querySelectorAll('.secbody .secpane'));
+   if(!panes.length)return;
+   var anchor=document.getElementById(key), owner=anchor&&anchor.closest('.secpane');
+   if(owner)key=owner.id.slice(3);
+   if(key!=='full'&&!panes.some(function(p){return p.id==='sp-'+key;}))key=panes[0].id.slice(3);
+   document.querySelectorAll('.sectabs .stab').forEach(function(a){
+    var active=a.dataset.p===key;a.classList.toggle('active',active);
+    if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+   });
+   panes.forEach(function(p){p.style.display=(key==='full'||p.id==='sp-'+key)?'':'none';});
+   document.querySelectorAll('.section-picker select').forEach(function(s){s.value=key;});
+   if(anchor&&owner){for(var parent=anchor.parentElement;parent&&parent!==owner;parent=parent.parentElement){if(parent.tagName==='DETAILS')parent.open=true;}}
+   if(scroll||owner){var target=(owner&&anchor)||document.getElementById('sp-'+key)||panes[0];target.scrollIntoView({block:'start'});}
+  };
+  document.addEventListener('change',function(e){if(e.target.matches('.section-picker select'))location.hash=e.target.value;});
+  window.addEventListener('hashchange',function(){window.intellectSelectSection(location.hash.slice(1),true);});
+  document.addEventListener('click',function(e){var a=e.target.closest('.sectabs a');if(a&&location.hash===a.getAttribute('href'))window.intellectSelectSection(a.dataset.p,true);});
+ }
+ window.intellectSelectSection(location.hash.slice(1),false);
+})();
+</script></div><div id='tab-method' style='display:none'><h1>Methodology &amp; how to read this</h1>
 <p class='sub'>How this study is built, and what the confidence labels mean.</p>
-<div class='legend'><div class='ltitle'>Confidence</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>CONFIRMED</span> — ≥2 independent sources agree (or independently verified)</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>RESEARCHED</span> — backed by one cited source</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>HYPOTHESIS</span> — the model&#x27;s estimate — unverified, given as a range</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>CONFLICTING</span> — sources disagree beyond tolerance — shown as a range</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>SINGLE_SOURCE</span> — only one source found</span></div><div style='height:10px'></div><div class='ltitle'>Audit verdicts</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>HOLDS</span> — independently corroborated</span></div><div class='li'><span class='dot' style='background:#ea580c'></span><span><span class='lk' style='color:#ea580c'>OVERSTATED</span> — right direction, magnitude too strong</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>REFUTED</span> — contradicted by what was found</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>UNCERTAIN</span> — could not be independently confirmed</span></div><div style='height:10px'></div><div class='ltitle'>Source quality</div><div class='li'><span class='dot' style='background:#0f9d6e'></span><span><span class='lk' style='color:#0f9d6e'>Authoritative</span> — official statistics, regulators, standards bodies, research institutes</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>Reputable</span> — established press and major industry research</span></div><div class='li'><span class='dot' style='background:#94a3b8'></span><span><span class='lk' style='color:#94a3b8'>Other</span> — vendor, trade or unattributed — read with care</span></div></div>
+<div class='legend'><div class='ltitle'>Confidence</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>CONFIRMED</span> — reported research tier; current independent support is recorded in the source audit</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>RESEARCHED</span> — backed by one cited source</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>HYPOTHESIS</span> — a qualitative assumption, scenario or unresolved input; not a verified fact</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>CONFLICTING</span> — evidence remains unreconciled; no defensible range is implied</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>SINGLE_SOURCE</span> — one underlying evidence family; multiple URLs are not independent corroboration</span></div><div style='height:10px'></div><div class='ltitle'>Audit verdicts</div><div class='li'><span class='dot' style='background:#16a34a'></span><span><span class='lk' style='color:#16a34a'>HOLDS</span> — a supporting verdict; current usability also requires scope, revision and dependency checks</span></div><div class='li'><span class='dot' style='background:#ea580c'></span><span><span class='lk' style='color:#ea580c'>OVERSTATED</span> — right direction, magnitude too strong</span></div><div class='li'><span class='dot' style='background:#dc2626'></span><span><span class='lk' style='color:#dc2626'>REFUTED</span> — contradicted by what was found</span></div><div class='li'><span class='dot' style='background:#d97706'></span><span><span class='lk' style='color:#d97706'>UNCERTAIN</span> — could not be independently confirmed</span></div><div style='height:10px'></div><div class='ltitle'>Source quality</div><div class='li'><span class='dot' style='background:#0f9d6e'></span><span><span class='lk' style='color:#0f9d6e'>Authoritative</span> — official statistics, regulators, standards bodies, research institutes</span></div><div class='li'><span class='dot' style='background:#2563eb'></span><span><span class='lk' style='color:#2563eb'>Reputable</span> — established press and major industry research</span></div><div class='li'><span class='dot' style='background:#94a3b8'></span><span><span class='lk' style='color:#94a3b8'>Other</span> — vendor, trade or unattributed — read with care</span></div></div>
 <h2 class='method'>How this is built</h2>
 <p>A verified-only competitive scan of the European online car-parts aftermarket: market sizing, a split by part category with EV-exposure, a competitor landscape, and a price matrix. A price appears only if verified against a real listing — retailer pages bot-block scraping, so prices are sourced from web-search snippets; a cell is left blank (—) rather than guessed.</p>
 <h2 class='method'>Key terms</h2><dl class='gloss'>
-<dt>Manufacturer price</dt><dd>The manufacturer&#x27;s selling price at its own premises — before transport, distributor and retailer margins, and VAT. The smallest, &#x27;truest&#x27; measure of a market: manufacturer revenue.</dd>
-<dt>End-user / installed spend</dt><dd>What the final buyer actually pays — manufacturer price plus every downstream margin, plus (for services) installation/labour and VAT. Often 2–10× the  manufacturer price figure.</dd>
+<dt>Manufacturer price</dt><dd>The manufacturer&#x27;s selling price at its own premises — before transport, downstream margins and VAT. Use only when the approved market boundary is manufacturer revenue.</dd>
+<dt>End-user / installed spend</dt><dd>Spending at the final buyer boundary. Hardware, installation, civil works, grid works and tax treatment must match the declared study scope; there is no universal conversion multiple.</dd>
 <dt>Consumer↔manufacturer ratio</dt><dd>The multiple between end-user price and manufacturer price for a channel — used to move a market size between the two bases without distorting it.</dd>
 <dt>Channel</dt><dd>A distinct route a product takes to its buyer (e.g. OEM first-fit vs aftermarket). Price builds up differently per channel, so they are never blended.</dd>
 <dt>Triangulation</dt><dd>Sizing a market by ≥2 independent methods and reconciling them; agreement raises confidence, divergence is itself a finding.</dd>
 <dt>TAM / SAM / SOM</dt><dd>Total / Serviceable / Obtainable market — the whole market, the slice a player can address, and the slice it can realistically win.</dd>
 <dt>Concentration (CR4 / HHI)</dt><dd>How consolidated a market is — CR4 = combined share of the top 4 players; HHI = sum of squared shares.</dd>
-</dl></div><script>document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});b.classList.add('active');document.getElementById('tab-results').style.display=(b.dataset.t=='results')?'':'none';document.getElementById('tab-method').style.display=(b.dataset.t=='method')?'':'none';};});</script><footer class='reportfoot'><span>INTELLECT &middot; POINT-IN-TIME ANALYSIS</span><span><a href='./index.html'>&larr; Project portfolio</a> &middot; Every figure links to its source</span></footer></main></body></html>
+</dl></div><script>document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});b.classList.add('active');document.getElementById('tab-results').style.display=(b.dataset.t=='results')?'':'none';document.getElementById('tab-method').style.display=(b.dataset.t=='method')?'':'none';};});</script><footer class='reportfoot'><span>INTELLECT &middot; POINT-IN-TIME ANALYSIS</span><span><a href='./index.html'>&larr; Project portfolio</a> &middot; Sources and evidence gaps are recorded in the audit</span></footer></main><style>
+:root{
+ --report-font:Arial,Helvetica,sans-serif;
+ --sans:var(--report-font);--display:var(--report-font);
+ --serif:var(--report-font);--mono:var(--report-font);
+ --type-body:14px;--type-label:13px;--type-h1:32px;
+ --type-h2:24px;--type-h3:18px;--type-number:28px;
+}
+body,.wrap{font-family:var(--report-font);font-size:var(--type-body);line-height:1.6}
+html body .wrap *{font-family:var(--report-font)!important}
+/* Inherit through nested copy rather than accumulating section-specific sizes. */
+.wrap :where(p,li,td,th,summary,button,select,input,div,span,a,b,strong,small,label,dt,dd,section,article,header,footer,aside,nav,table,thead,tbody,tfoot,tr,details,ul,ol,dl,figure,figcaption){font-size:inherit!important}
+.wrap :is(p,li,td,th){line-height:1.6}
+.wrap :is(h1,.headline){font-size:var(--type-h1)!important;line-height:1.2;font-weight:700}
+.wrap :is(h2,.section-h){font-size:var(--type-h2)!important;line-height:1.3;font-weight:700}
+.wrap h3{font-size:var(--type-h3)!important;line-height:1.4;font-weight:700}
+.wrap h4{font-size:var(--type-body)!important;line-height:1.4;font-weight:700}
+.wrap :is(small,.small,.sub,.meta,.asof,.chart-foot,.chart-source,.reportfoot,
+ .eyebrow,.kicker,.mastkind,.scopeitem .sl,.analysis-kpis small,.analysis-kpis span,.metric .ml,
+ .expert-topic,.expert-counts,.expert-small,.expert-condition,.expert-next b,
+ .expert-position-legend,.expert-origin-head,.expert-assumption,.factor-rating,
+ .factor-kind,.policy-priority,.policy-exposure,.policy-timing-note,
+ .analysis-legend,.commercial-legend,.policy-time-legend,.build-legend,
+ .channel-benchmark header>span,.impact-label,.source-note){font-size:var(--type-label)!important;line-height:1.5}
+.wrap :is(.analysis-kpis strong,.expert-coverage-kpis strong,.metric .mv,.mval){font-size:var(--type-number)!important;line-height:1.2;font-variant-numeric:tabular-nums}
+.wrap :is(.category-cell span,.channel-link-arrow,.channel-flow-arrow>span){font-size:24px!important}
+.wrap .channel-link-arrow{line-height:25px}
+.wrap .secpane svg text{font-size:var(--type-body)!important}
+.wrap :is(summary,button,select){font-weight:600}
+.route-lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.route-channel{border:1px solid #d6e0e3;padding:18px;border-radius:8px;min-width:0}
+.route-lane{display:grid;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);align-items:center;gap:8px;margin:12px 0}
+.route-member{border:1px solid #d6e0e3;border-top:4px solid;padding:12px;overflow-wrap:anywhere}
+.route-member span{display:block}.route-arrow{text-align:center;font-size:24px!important}
+.reader-table{max-width:100%;overflow-x:auto}.reader-table td{overflow-wrap:anywhere}
+@media(max-width:800px){.route-lanes{grid-template-columns:1fr}.driver-compare{grid-template-columns:1fr}}
+@media(max-width:650px){:root{--type-h1:26px;--type-h2:22px}}
+</style></body></html>

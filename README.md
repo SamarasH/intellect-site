@@ -1,8 +1,9 @@
 # Intellect — Market & Competitive Intelligence
 
-Decision-grade market research built from verified data — every figure is sourced
-or flagged, conflicting figures become ranges, and an adversarial pass refutes the
-headline claims before they ship.
+Independent market intelligence consulting for strategy, growth and investment
+decisions: market opportunity, competitive positioning, routes to market and
+commercial diligence. Reported facts, calculated estimates and assumptions are
+distinguished, with sources and open questions available in the studies.
 
 **Live site:** open `index.html` (or enable GitHub Pages on this repo).
 
